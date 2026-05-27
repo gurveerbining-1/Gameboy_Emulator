@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <iostream>
 #include "Instructions.H"
 #include "membus.h"
 
@@ -77,9 +78,14 @@ class CPU{
         void reset(); // set initial values 
         void step(); // fetch opcode, decode it, then execute instruction and advance cycles
         uint8_t fetch();
+        uint16_t fetch16(); // reads two bytes, advances PC twice, assembles little-endian
         void execute_opcode(uint8_t opcode);
         uint8_t update_cycles(uint8_t cycles);
-        
+        void setReg16(reg_type, uint16_t);
+        uint16_t getReg16(reg_type);
+        void setReg8(reg_type, uint8_t);
+        uint8_t getReg8(reg_type);
+
     private:
         void handle_interrupts(); 
         registers reg;

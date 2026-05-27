@@ -1,5 +1,5 @@
 #include "Instructions.h"
-
+#include "CPU.h"
 
 
 void initInstructionTable(std::array<Instruction, 256>& table){
@@ -40,10 +40,26 @@ void initInstructionTable(std::array<Instruction, 256>& table){
 }
 
 
-void op_nop(CPU& cpu) {
+void op_nop(CPU& cpu, Instruction& inst) {
     // nothing 
+}
+
+void op_ld_r16_imm16(CPU& cpu, Instruction& inst){
+    if(inst.address_mode == addrmode::AM_R_D16){
+        // load immediate 16 bit value into register
+        uint16_t value = cpu.fetch16(); // imm16 value
+        cpu.setReg16(inst.reg_1, value); // write to register
+    }
+}
+
+void op_ld_mr_r(CPU& cpu, Instruction& inst){
+    if(inst.address_mode == addrmode::AM_MR_R){
+        // load value of register into address of the target register
+        // to do this: Add a public write(uint16_t addr, uint8_t val) on CPU that calls bus->write
+    }
 }
 
 void initHandlerTable(std::array<Handler, 256>& table) {
     table[0x00] = op_nop;
+    table[0x01] = op_ld_r16_imm16;
 }

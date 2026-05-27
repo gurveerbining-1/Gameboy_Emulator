@@ -5,7 +5,7 @@
 
 class CPU;
 
-using Handler = void(*)(CPU&);
+using Handler = void(*)(CPU&, const Instruction&);
 
 enum class addrmode{
     AM_R_D16,   // register <- 16-bit immediate value
