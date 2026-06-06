@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/gb_emulator.dir/CPU/CPU.cpp.o CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.o CMakeFiles/gb_emulator.dir/bus/membus.cpp.o CMakeFiles/gb_emulator.dir/cartridge/Cartridge.cpp.o CMakeFiles/gb_emulator.dir/platform/window.cpp.o -o bin/gb_emulator  /usr/lib/x86_64-linux-gnu/libSDL2.so 

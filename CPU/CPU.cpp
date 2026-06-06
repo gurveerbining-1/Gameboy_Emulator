@@ -24,7 +24,7 @@ void CPU::reset(){
     reg.H = 0x01;
     reg.L = 0x4D;
 
-    reg.PC = 0x0100; // if I choose to emulate the boot rom then PC = PC = 0x0000
+    reg.PC = 0x0100; // I plan to emulate the boot rom so PC = 0x0000, emulators that skip the boot rom start PC = 0x0100
     reg.SP = 0xFFFE;
     
 }
@@ -36,9 +36,10 @@ void CPU::handle_interrupts(){
 void CPU::step(){
     
     handle_interrupts();
+    std::cout << std::hex << "PC=" << (int)reg.PC << std::endl;
     uint8_t opcode = fetch();
     execute_opcode(opcode);
-    
+    //std::cin.get();
 }
 
 uint8_t CPU::fetch(){
@@ -62,7 +63,8 @@ uint16_t CPU::fetch16(){
 
 uint8_t CPU::update_cycles(uint8_t cycles){
 
-}
+    return 0;
+}  
 
 void CPU::setReg16(reg_type target_reg, uint16_t value){
     /*
@@ -205,13 +207,25 @@ uint8_t CPU::getReg8(reg_type inst_reg){
         case(reg_type::R_L):
             return this->reg.L;
             break;
-        
+
+        default:
+            return 0;
     }
 }
 
+void CPU::write(uint16_t addr, uint8_t val){
+    bus->write(addr, val);
+}
+
 void CPU::execute_opcode(uint8_t opcode){
+    current_opcode = opcode;
+    std::cout << "Opcode: 0x" << std::hex << (int)opcode << std::endl;
+
     const Instruction currentInst = instruction_table[opcode];
     const Handler currentHandler = handler_table[opcode];
+
+    std::cout << "Handler ptr: " << (void*)currentHandler << std::endl;
+
     currentHandler(*this, currentInst);
     //update_cycles();
     

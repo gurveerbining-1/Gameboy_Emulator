@@ -5,8 +5,6 @@
 
 class CPU;
 
-using Handler = void(*)(CPU&, const Instruction&);
-
 enum class addrmode{
     AM_R_D16,   // register <- 16-bit immediate value
     AM_R_R,     // register <- register
@@ -68,6 +66,7 @@ enum class operand_type {
 };
 
 enum class mnemonic{
+    IN_INVALID,
     IN_NOP,
     IN_LD,
     IN_INC,
@@ -152,6 +151,8 @@ struct Instruction
     uint8_t cycles;
 
 }; 
+
+using Handler = void(*)(CPU&, const Instruction&);
 
 void initInstructionTable(std::array<Instruction, 256>& table);
 void initHandlerTable(std::array<Handler, 256>& table);

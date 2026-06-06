@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <iostream>
 #include "Instructions.H"
-#include "membus.h"
+#include "../bus/membus.h"
 
 /*   condition code (2 bits inside the opcode) selects whether a conditional branch is taken, 
 *    based on CPU flags, nz (not zero), z (zero), nc (no carry), c (carry)
@@ -40,6 +40,13 @@ struct registers{
     // Program Counter and Stack Pointer
     uint16_t PC;
     uint16_t SP;
+};
+
+enum Flag : uint8_t {
+    Z = 1 << 7,
+    N = 1 << 6,
+    H = 1 << 5,
+    C = 1 << 4
 };
 
 /*
@@ -85,7 +92,8 @@ class CPU{
         uint16_t getReg16(reg_type);
         void setReg8(reg_type, uint8_t);
         uint8_t getReg8(reg_type);
-
+        void write(uint16_t addr, uint8_t val);
+        uint8_t current_opcode;
     private:
         void handle_interrupts(); 
         registers reg;
