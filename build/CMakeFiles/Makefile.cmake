@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/CMakeLists.txt"
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/CMakeLists.txt"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "CMakeFiles/VerifyGlobs.cmake"
@@ -46,4 +46,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/gb_emulator.dir/DependInfo.cmake"
+  "CMakeFiles/cpu_tests.dir/DependInfo.cmake"
   )

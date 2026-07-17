@@ -36,7 +36,7 @@ void CPU::handle_interrupts(){
 void CPU::step(){
     
     handle_interrupts();
-    std::cout << std::hex << "PC=" << (int)reg.PC << std::endl;
+    std::cout << std::hex << "PC=" << reg.PC << std::endl;
     uint8_t opcode = fetch();
     execute_opcode(opcode);
     //std::cin.get();
@@ -62,7 +62,7 @@ uint16_t CPU::fetch16(){
 }
 
 uint8_t CPU::update_cycles(uint8_t cycles){
-
+    
     return 0;
 }  
 
@@ -211,6 +211,30 @@ uint8_t CPU::getReg8(reg_type inst_reg){
         default:
             return 0;
     }
+}
+
+void CPU::setFlag(Flag flag, bool value){
+
+    uint8_t mask = static_cast<uint8_t>(flag);
+
+    // Bitwise OR
+    if(value){
+        reg.F |= mask;
+    }
+    // Bitwise AND
+    else{
+        reg.F &= ~mask;
+    }
+    // Lower nibble of F is always zero.
+    reg.F &= 0xF0;
+}
+
+bool CPU::getFlag(Flag flag){
+    return (reg.F & flag) != 0;
+}
+
+uint8_t CPU::read(uint16_t addr){
+    return bus->read(addr);
 }
 
 void CPU::write(uint16_t addr, uint8_t val){

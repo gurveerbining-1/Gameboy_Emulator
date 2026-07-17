@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/include" -isystem /usr/include/SDL2
+CXX_INCLUDES = -I"/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/include"
 
 CXX_FLAGS = -std=gnu++17
 

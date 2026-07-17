@@ -93,7 +93,10 @@ class CPU{
         void setReg8(reg_type, uint8_t);
         uint8_t getReg8(reg_type);
         void write(uint16_t addr, uint8_t val);
+        uint8_t read(uint16_t addr);
         uint8_t current_opcode;
+        void setFlag(Flag flag, bool value);
+        bool getFlag(Flag flag);
     private:
         void handle_interrupts(); 
         registers reg;

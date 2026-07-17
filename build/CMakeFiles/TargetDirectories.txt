@@ -1,3 +1,4 @@
-/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/gb_emulator.dir
-/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/gb_emulator.dir
+/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/cpu_tests.dir
+/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/rebuild_cache.dir

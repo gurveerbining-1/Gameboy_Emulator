@@ -1,7 +1,7 @@
 CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.o: \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/CPU/opcodes.cpp \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/opcodes.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/CPU/Instructions.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/Instructions.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -119,7 +119,7 @@ CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.o: \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
  /usr/include/c++/13/array /usr/include/c++/13/compare \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/CPU/CPU.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/CPU.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/exception \
  /usr/include/c++/13/bits/exception_ptr.h \
@@ -157,9 +157,9 @@ CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/CPU/../bus/membus.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/../bus/membus.h \
  /usr/include/c++/13/cstdint \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/CPU/../bus/../cartridge/Cartridge.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/../bus/../cartridge/Cartridge.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \

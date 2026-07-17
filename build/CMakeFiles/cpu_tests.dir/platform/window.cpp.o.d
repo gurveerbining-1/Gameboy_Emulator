@@ -1,4 +1,4 @@
-CMakeFiles/gb_emulator.dir/platform/window.cpp.o: \
+CMakeFiles/cpu_tests.dir/platform/window.cpp.o: \
  /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/platform/window.cpp \
  /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \

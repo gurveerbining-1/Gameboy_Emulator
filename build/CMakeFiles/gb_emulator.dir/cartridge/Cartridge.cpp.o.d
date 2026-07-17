@@ -1,7 +1,7 @@
 CMakeFiles/gb_emulator.dir/cartridge/Cartridge.cpp.o: \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/cartridge/Cartridge.cpp \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/cartridge/Cartridge.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/cartridge/Cartridge.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/cartridge/Cartridge.h \
  /usr/include/c++/13/cstdint \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles" "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles" "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -113,7 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -P "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -130,12 +130,26 @@ gb_emulator/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/build
 .PHONY : gb_emulator/fast
 
+#=============================================================================
+# Target rules for targets named cpu_tests
+
+# Build rule for target.
+cpu_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cpu_tests
+.PHONY : cpu_tests
+
+# fast build rule for target.
+cpu_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/build
+.PHONY : cpu_tests/fast
+
 CPU/CPU.o: CPU/CPU.cpp.o
 .PHONY : CPU/CPU.o
 
 # target to build an object file
 CPU/CPU.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/CPU/CPU.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/CPU/CPU.cpp.o
 .PHONY : CPU/CPU.cpp.o
 
 CPU/CPU.i: CPU/CPU.cpp.i
@@ -144,6 +158,7 @@ CPU/CPU.i: CPU/CPU.cpp.i
 # target to preprocess a source file
 CPU/CPU.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/CPU/CPU.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/CPU/CPU.cpp.i
 .PHONY : CPU/CPU.cpp.i
 
 CPU/CPU.s: CPU/CPU.cpp.s
@@ -152,6 +167,7 @@ CPU/CPU.s: CPU/CPU.cpp.s
 # target to generate assembly for a file
 CPU/CPU.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/CPU/CPU.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/CPU/CPU.cpp.s
 .PHONY : CPU/CPU.cpp.s
 
 CPU/opcodes.o: CPU/opcodes.cpp.o
@@ -160,6 +176,7 @@ CPU/opcodes.o: CPU/opcodes.cpp.o
 # target to build an object file
 CPU/opcodes.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/CPU/opcodes.cpp.o
 .PHONY : CPU/opcodes.cpp.o
 
 CPU/opcodes.i: CPU/opcodes.cpp.i
@@ -168,6 +185,7 @@ CPU/opcodes.i: CPU/opcodes.cpp.i
 # target to preprocess a source file
 CPU/opcodes.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/CPU/opcodes.cpp.i
 .PHONY : CPU/opcodes.cpp.i
 
 CPU/opcodes.s: CPU/opcodes.cpp.s
@@ -176,6 +194,7 @@ CPU/opcodes.s: CPU/opcodes.cpp.s
 # target to generate assembly for a file
 CPU/opcodes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/CPU/opcodes.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/CPU/opcodes.cpp.s
 .PHONY : CPU/opcodes.cpp.s
 
 bus/membus.o: bus/membus.cpp.o
@@ -184,6 +203,7 @@ bus/membus.o: bus/membus.cpp.o
 # target to build an object file
 bus/membus.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/bus/membus.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/bus/membus.cpp.o
 .PHONY : bus/membus.cpp.o
 
 bus/membus.i: bus/membus.cpp.i
@@ -192,6 +212,7 @@ bus/membus.i: bus/membus.cpp.i
 # target to preprocess a source file
 bus/membus.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/bus/membus.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/bus/membus.cpp.i
 .PHONY : bus/membus.cpp.i
 
 bus/membus.s: bus/membus.cpp.s
@@ -200,6 +221,7 @@ bus/membus.s: bus/membus.cpp.s
 # target to generate assembly for a file
 bus/membus.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/bus/membus.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/bus/membus.cpp.s
 .PHONY : bus/membus.cpp.s
 
 cartridge/Cartridge.o: cartridge/Cartridge.cpp.o
@@ -208,6 +230,7 @@ cartridge/Cartridge.o: cartridge/Cartridge.cpp.o
 # target to build an object file
 cartridge/Cartridge.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/cartridge/Cartridge.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/cartridge/Cartridge.cpp.o
 .PHONY : cartridge/Cartridge.cpp.o
 
 cartridge/Cartridge.i: cartridge/Cartridge.cpp.i
@@ -216,6 +239,7 @@ cartridge/Cartridge.i: cartridge/Cartridge.cpp.i
 # target to preprocess a source file
 cartridge/Cartridge.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/cartridge/Cartridge.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/cartridge/Cartridge.cpp.i
 .PHONY : cartridge/Cartridge.cpp.i
 
 cartridge/Cartridge.s: cartridge/Cartridge.cpp.s
@@ -224,6 +248,7 @@ cartridge/Cartridge.s: cartridge/Cartridge.cpp.s
 # target to generate assembly for a file
 cartridge/Cartridge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/cartridge/Cartridge.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/cartridge/Cartridge.cpp.s
 .PHONY : cartridge/Cartridge.cpp.s
 
 platform/window.o: platform/window.cpp.o
@@ -250,6 +275,30 @@ platform/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb_emulator.dir/build.make CMakeFiles/gb_emulator.dir/platform/window.cpp.s
 .PHONY : platform/window.cpp.s
 
+tests/CPUtests.o: tests/CPUtests.cpp.o
+.PHONY : tests/CPUtests.o
+
+# target to build an object file
+tests/CPUtests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/tests/CPUtests.cpp.o
+.PHONY : tests/CPUtests.cpp.o
+
+tests/CPUtests.i: tests/CPUtests.cpp.i
+.PHONY : tests/CPUtests.i
+
+# target to preprocess a source file
+tests/CPUtests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/tests/CPUtests.cpp.i
+.PHONY : tests/CPUtests.cpp.i
+
+tests/CPUtests.s: tests/CPUtests.cpp.s
+.PHONY : tests/CPUtests.s
+
+# target to generate assembly for a file
+tests/CPUtests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/tests/CPUtests.cpp.s
+.PHONY : tests/CPUtests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -258,6 +307,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... cpu_tests"
 	@echo "... gb_emulator"
 	@echo "... CPU/CPU.o"
 	@echo "... CPU/CPU.i"
@@ -274,6 +324,9 @@ help:
 	@echo "... platform/window.o"
 	@echo "... platform/window.i"
 	@echo "... platform/window.s"
+	@echo "... tests/CPUtests.o"
+	@echo "... tests/CPUtests.i"
+	@echo "... tests/CPUtests.s"
 .PHONY : help
 
 
@@ -285,7 +338,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

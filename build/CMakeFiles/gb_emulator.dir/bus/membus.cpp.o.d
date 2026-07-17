@@ -1,7 +1,7 @@
 CMakeFiles/gb_emulator.dir/bus/membus.cpp.o: \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/bus/membus.cpp \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/bus/membus.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/bus/membus.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/bus/membus.h \
  /usr/include/c++/13/cstdint \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -119,7 +119,7 @@ CMakeFiles/gb_emulator.dir/bus/membus.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /mnt/c/Users/gurve/OneDrive/Documents/Gameboy\ Emulator/bus/../cartridge/Cartridge.h \
+ /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/bus/../cartridge/Cartridge.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \

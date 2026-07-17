@@ -24,3 +24,20 @@ target_include_directories(gb_emulator PRIVATE include)
 find_package(SDL2 REQUIRED)
 
 target_link_libraries(gb_emulator PRIVATE SDL2::SDL2)
+
+# ============================
+# CPU Tests
+# ============================
+
+file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS
+    tests/*.cpp
+    bus/*.cpp
+    cartridge/*.cpp
+    CPU/*.cpp 
+)
+
+add_executable(cpu_tests 
+    ${TEST_SOURCES}
+)
+
+target_include_directories(cpu_tests PRIVATE include)

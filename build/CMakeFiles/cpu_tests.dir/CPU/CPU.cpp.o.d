@@ -1,4 +1,4 @@
-CMakeFiles/gb_emulator.dir/CPU/CPU.cpp.o: \
+CMakeFiles/cpu_tests.dir/CPU/CPU.cpp.o: \
  /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/CPU.cpp \
  /usr/include/stdc-predef.h \
  /mnt/c/Users/gurve/OneDrive/Documents/GameBoy\ Emulator/CPU/CPU.h \

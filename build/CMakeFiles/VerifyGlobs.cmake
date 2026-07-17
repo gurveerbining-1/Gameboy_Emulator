@@ -3,42 +3,55 @@
 cmake_policy(SET CMP0009 NEW)
 
 # SOURCES at CMakeLists.txt:11 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/CPU/*.cpp")
+# TEST_SOURCES at CMakeLists.txt:32 (file)
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/CPU/*.cpp")
 set(OLD_GLOB
-  "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/CPU/CPU.cpp"
-  "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/CPU/opcodes.cpp"
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/CPU/CPU.cpp"
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/CPU/opcodes.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # SOURCES at CMakeLists.txt:11 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/bus/*.cpp")
+# TEST_SOURCES at CMakeLists.txt:32 (file)
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/bus/*.cpp")
 set(OLD_GLOB
-  "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/bus/membus.cpp"
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/bus/membus.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # SOURCES at CMakeLists.txt:11 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/cartridge/*.cpp")
+# TEST_SOURCES at CMakeLists.txt:32 (file)
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/cartridge/*.cpp")
 set(OLD_GLOB
-  "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/cartridge/Cartridge.cpp"
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/cartridge/Cartridge.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # SOURCES at CMakeLists.txt:11 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/platform/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/platform/*.cpp")
 set(OLD_GLOB
-  "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/platform/window.cpp"
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/platform/window.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/Gameboy Emulator/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/cmake.verify_globs")
+endif()
+
+# TEST_SOURCES at CMakeLists.txt:32 (file)
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/tests/*.cpp")
+set(OLD_GLOB
+  "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/tests/CPUtests.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/mnt/c/Users/gurve/OneDrive/Documents/GameBoy Emulator/build/CMakeFiles/cmake.verify_globs")
 endif()
