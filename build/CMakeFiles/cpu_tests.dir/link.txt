@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/cpu_tests.dir/CPU/CPU.cpp.o CMakeFiles/cpu_tests.dir/CPU/opcodes.cpp.o CMakeFiles/cpu_tests.dir/bus/membus.cpp.o CMakeFiles/cpu_tests.dir/cartridge/Cartridge.cpp.o CMakeFiles/cpu_tests.dir/tests/CPUtests.cpp.o -o bin/cpu_tests 
