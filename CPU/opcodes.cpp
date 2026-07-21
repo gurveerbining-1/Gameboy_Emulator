@@ -206,6 +206,210 @@ void initInstructionTable(std::array<Instruction, 256>& table){
         1,
         4
     };
+
+    table[0x10] = {
+        mnemonic::IN_STOP,
+        addrmode::AM_IMP,
+        operand_type::NONE,
+        operand_type::NONE,
+        reg_type::R_NONE,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        2
+    };
+
+    table[0x11] = {
+        mnemonic::IN_LD,
+        addrmode::AM_R_D16,
+        operand_type::R16,
+        operand_type::IMM16,
+        reg_type::R_DE,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        3,
+        12        
+    };
+
+    table[0x12] = {
+        mnemonic::IN_LD,
+        addrmode::AM_MR_R,
+        operand_type::MEM_R,
+        operand_type::R8,
+        reg_type::R_DE,
+        reg_type::R_A,
+        condition_code::CD_NONE,
+        1,
+        8
+    };
+
+    table[0x13] = {
+        mnemonic::IN_INC,
+        addrmode::AM_R,
+        operand_type::R16,
+        operand_type::NONE,
+        reg_type::R_DE,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        8
+    };
+
+    table[0x14] = {
+        mnemonic::IN_INC,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        4
+    };
+
+    table[0x15] = {
+        mnemonic::IN_DEC,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        4
+    };
+
+    table[0x16] = {
+        mnemonic::IN_LD,
+        addrmode::AM_R_D8,
+        operand_type::R8,
+        operand_type::IMM8,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x17] = {
+        mnemonic::IN_RLA,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        4
+    };
+
+    table[0x18] = {
+        mnemonic::IN_JR,
+        addrmode::AM_D8,
+        operand_type::IMM8,
+        operand_type::NONE,
+        reg_type::R_NONE,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x19] = {
+        mnemonic::IN_ADD,
+        addrmode::AM_R_R,
+        operand_type::R16,
+        operand_type::R16,
+        reg_type::R_HL,
+        reg_type::R_DE,
+        condition_code::CD_NONE,
+        1,
+        8
+    };
+
+    table[0x1A] = {
+        mnemonic::IN_LD,
+        addrmode::AM_R_MR,
+        operand_type::R8,
+        operand_type::MEM_R,
+        reg_type::R_A,
+        reg_type::R_DE,
+        condition_code::CD_NONE,
+        1,
+        8
+    };
+
+    table[0x1B] = {
+        mnemonic::IN_DEC,
+        addrmode::AM_R,
+        operand_type::R16,
+        operand_type::NONE,
+        reg_type::R_DE,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        8
+    };
+
+    table[0x1C] = {
+        mnemonic::IN_INC,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        4
+    };
+
+    table[0x1D] = {
+        mnemonic::IN_DEC,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        4
+    };
+
+    table[0x1E] = {
+        mnemonic::IN_LD,
+        addrmode::AM_R_D8,
+        operand_type::R8,
+        operand_type::IMM8,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x1F] = {
+        mnemonic::IN_RRA,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        1,
+        4
+    };
+
+    table[0x20] = {
+        mnemonic::IN_JR,
+        addrmode::AM_D8,
+        operand_type::IMM8,
+        operand_type::NONE,
+        reg_type::R_NONE,
+        reg_type::R_NONE,
+        condition_code::CD_NZ,
+        2,
+        8  // not-taken cycles, handler adds 4 more when taken
+    };
 }
 
 void op_unimplemented(CPU& cpu, const Instruction& inst)
@@ -346,7 +550,55 @@ void op_rrca(CPU& cpu, const Instruction& inst){
 }
 
 void op_stop(CPU& cpu, const Instruction& inst){
+    // partial implementation for now
+    cpu.fetch();
+    cpu.stopped = true;
+}
 
+void op_rla(CPU& cpu, const Instruction& inst){
+    /*
+    Rotate the contents of register A to the left, through the carry (CY) flag. 
+    That is, the contents of bit 0 are copied to bit 1, and the previous contents of bit 1 (before the copy operation) 
+    are copied to bit 2. The same operation is repeated in sequence for the rest of the register. 
+    The previous contents of the carry flag are copied to bit 0.
+    */
+
+    uint8_t a = cpu.getReg8(reg_type::R_A);
+    uint8_t old_carry = cpu.getFlag(Flag::C); 
+    uint8_t new_carry = (a >> 7) & 1; 
+    uint8_t rotated = (a << 1) | old_carry;
+    cpu.setReg8(reg_type::R_A, rotated);
+
+    cpu.setFlag(Flag::C, new_carry); 
+    cpu.setFlag(Flag::Z, false);
+    cpu.setFlag(Flag::N, false);
+    cpu.setFlag(Flag::H, false);
+}
+
+void op_jr_s8(CPU& cpu, const Instruction& inst){
+    // Jump s8 steps (s8 steps means: a signed 8-bit number of steps.) from the currect address in PC
+    int8_t offset = static_cast<int8_t>(cpu.fetch()); // needs to be signed because the offset byte is -2
+    uint16_t pc = cpu.getReg16(reg_type::R_PC);
+    cpu.setReg16(reg_type::R_PC, pc + offset);
+}
+
+void op_rra(CPU& cpu, const Instruction& inst){
+    /*
+    Rotate the contents of register A to the right, through the carry (CY) flag. 
+    That is, the contents of bit 7 are copied to bit 6, and the previous contents of bit 6 (before the copy) are copied to bit 5. 
+    The same operation is repeated in sequence for the rest of the register. 
+    The previous contents of the carry flag are copied to bit 7.
+    */
+    uint8_t a = cpu.getReg8(reg_type::R_A);
+    uint8_t old_carry = cpu.getFlag(Flag::C);
+    uint8_t new_carry = (a >> 7) & 1;
+    uint8_t rotated = (a << 1) | old_carry;
+
+    cpu.setReg8(reg_type::R_A, rotated);
+    cpu.setFlag(Flag::C, new_carry);
+    cpu.setFlag(Flag::Z, false);
+    cpu.setFlag(Flag::N, false);
+    cpu.setFlag(Flag::H, false);
 }
 
 void initHandlerTable(std::array<Handler, 256>& table) {
@@ -367,4 +619,20 @@ void initHandlerTable(std::array<Handler, 256>& table) {
     table[0x0D] = op_dec_r8;
     table[0x0E] = op_ld_r8_imm8;
     table[0x0F] = op_rrca;
+    table[0x10] = op_stop; // remember that this is not done, don't need it for now though
+    table[0x11] = op_ld_r16_imm16;
+    table[0x12] = op_ld_mr_r;
+    table[0x13] = op_inc_r16;
+    table[0x14] = op_inc_r8;
+    table[0x15] = op_dec_r8;
+    table[0x16] = op_ld_r8_imm8;
+    table[0x17] = op_rla;
+    table[0x18] = op_jr_s8;
+    table[0x19] = op_add_r16_r16;
+    table[0x1A] = op_ld_r_mr;
+    table[0x1B] = op_dec_r16;
+    table[0x1C] = op_inc_r8;
+    table[0x1D] = op_dec_r8;
+    table[0x1E] = op_ld_r8_imm8;
+    table[0x1F] = op_rra;
 } 

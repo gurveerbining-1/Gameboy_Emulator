@@ -87,7 +87,7 @@ class CPU{
         uint8_t fetch();
         uint16_t fetch16(); // reads two bytes, advances PC twice, assembles little-endian
         void execute_opcode(uint8_t opcode);
-        uint8_t update_cycles(uint8_t cycles);
+        void update_cycles(uint8_t cycles);
         void setReg16(reg_type, uint16_t);
         uint16_t getReg16(reg_type);
         void setReg8(reg_type, uint8_t);
@@ -97,10 +97,12 @@ class CPU{
         uint8_t current_opcode;
         void setFlag(Flag flag, bool value);
         bool getFlag(Flag flag);
+        bool stopped;
     private:
         void handle_interrupts(); 
         registers reg;
         membus* bus;
         std::array<Instruction, 256> instruction_table;
         std::array<Handler, 256> handler_table;
+        uint32_t cycle_count;
 };

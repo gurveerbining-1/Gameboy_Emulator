@@ -34,12 +34,11 @@ void CPU::handle_interrupts(){
 }
 
 void CPU::step(){
-    
+    if(stopped) return;
     handle_interrupts();
     std::cout << std::hex << "PC=" << reg.PC << std::endl;
     uint8_t opcode = fetch();
     execute_opcode(opcode);
-    //std::cin.get();
 }
 
 uint8_t CPU::fetch(){
@@ -61,9 +60,8 @@ uint16_t CPU::fetch16(){
 
 }
 
-uint8_t CPU::update_cycles(uint8_t cycles){
-    
-    return 0;
+void CPU::update_cycles(uint8_t cycles){
+    cycle_count += cycles;
 }  
 
 void CPU::setReg16(reg_type target_reg, uint16_t value){
@@ -251,7 +249,7 @@ void CPU::execute_opcode(uint8_t opcode){
     std::cout << "Handler ptr: " << (void*)currentHandler << std::endl;
 
     currentHandler(*this, currentInst);
-    //update_cycles();
+    update_cycles(currentInst.cycles);
     
     //instructionTable tells you what an instruction is, but execute_opcode still has no idea what to do with it.
 
