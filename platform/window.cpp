@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     }
     
     membus mem;
-    mem.loadCartridge("../../ROMs/01-special.gb");
+    mem.loadCartridge("../../ROMs/cpu_instrs.gb");
     CPU cpu(&mem);
     
     while (!done)

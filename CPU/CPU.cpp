@@ -34,10 +34,20 @@ void CPU::handle_interrupts(){
 }
 
 void CPU::step(){
-    if(stopped) return;
+    if(halted) return;
     handle_interrupts();
-    std::cout << std::hex << "PC=" << reg.PC << std::endl;
+    
+    uint16_t oldPC = reg.PC;
+
     uint8_t opcode = fetch();
+
+    std::cout << "PC: 0x"
+          << std::hex << oldPC
+          << " Opcode: 0x"
+          << static_cast<int>(opcode)
+          << "\n";
+        
+
     execute_opcode(opcode);
 }
 
@@ -246,7 +256,7 @@ void CPU::execute_opcode(uint8_t opcode){
     const Instruction currentInst = instruction_table[opcode];
     const Handler currentHandler = handler_table[opcode];
 
-    std::cout << "Handler ptr: " << (void*)currentHandler << std::endl;
+    //std::cout << "Handler ptr: " << (void*)currentHandler << std::endl;
 
     currentHandler(*this, currentInst);
     update_cycles(currentInst.cycles);

@@ -36,7 +36,7 @@ class membus{
     private:
         Cartridge cartridge;
         uint8_t memory[65536]; 
-        bool testMode;
+        bool testMode = false;
 
         bool bootROM(); 
 };

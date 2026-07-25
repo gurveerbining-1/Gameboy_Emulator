@@ -97,7 +97,8 @@ class CPU{
         uint8_t current_opcode;
         void setFlag(Flag flag, bool value);
         bool getFlag(Flag flag);
-        bool stopped;
+        bool stopped = false;
+        bool halted = false;
     private:
         void handle_interrupts(); 
         registers reg;

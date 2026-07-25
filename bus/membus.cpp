@@ -22,7 +22,7 @@ uint8_t membus::read(uint16_t addr){
         value = memory[addr];
     }
 
-    printf("READ %04X -> %02X\n", addr, value);
+    //printf("READ %04X -> %02X\n", addr, value);
 
     return value;
 
@@ -36,9 +36,8 @@ void membus::write(uint16_t addr, uint8_t value){
 
     SB (0xFF01) - Serial transfer data
     SC (0xFF02) - Serial control*/
-
     if (addr == 0xFF02 && value == 0x81){
-        std::cout << (char)memory[0xFF01];
+        std::cout << (char)memory[0xFF01] << std::flush;
     }
 }
 

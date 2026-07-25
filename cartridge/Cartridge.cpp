@@ -27,10 +27,10 @@ void Cartridge::load(const std::string &path){
     parseHeader();
 
     std::cout << "ROM size: " << rom_data.size() << "\n";
-
-    for (int i = 0x100; i < 0x120; i++) {
-        printf("ROM[%04X] = %02X\n", i, rom_data[i]);
-    }
+    
+  //  for (int i = 0x100; i < 0x120; i++) {
+  //      printf("ROM[%04X] = %02X\n", i, rom_data[i]);
+  //  }
 
 }
 
