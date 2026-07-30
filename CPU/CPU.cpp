@@ -41,12 +41,13 @@ void CPU::step(){
 
     uint8_t opcode = fetch();
 
+    /*
     std::cout << "PC: 0x"
           << std::hex << oldPC
           << " Opcode: 0x"
           << static_cast<int>(opcode)
           << "\n";
-        
+    */ 
 
     execute_opcode(opcode);
 }
@@ -249,9 +250,27 @@ void CPU::write(uint16_t addr, uint8_t val){
     bus->write(addr, val);
 }
 
+void CPU::push16(uint16_t value){
+    reg.SP -= 1;
+    uint8_t high_byte = (value >> 8) & 0xFF;
+    write(reg.SP, high_byte);
+
+    reg.SP -= 1;
+    uint8_t low_byte = (value & 0xFF);
+    write(reg.SP, low_byte);
+}
+        
+uint16_t CPU::pop16(){
+    uint8_t low = read(reg.SP);
+    reg.SP += 1;
+    uint8_t high = read(reg.SP);
+    reg.SP += 1;
+    return (static_cast<uint16_t>(high) << 8) | low;
+}
+
 void CPU::execute_opcode(uint8_t opcode){
     current_opcode = opcode;
-    std::cout << "Opcode: 0x" << std::hex << (int)opcode << std::endl;
+    //std::cout << "Opcode: 0x" << std::hex << (int)opcode << std::endl;
 
     const Instruction currentInst = instruction_table[opcode];
     const Handler currentHandler = handler_table[opcode];

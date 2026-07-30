@@ -21,11 +21,13 @@ enum class addrmode{
     AM_D16,     // immediate 16-bit value from instruction stream
     AM_D8,      // immediate 8-bit value from instruction stream
     AM_IMP,     // no operands, instruction operates implicitly
-    AM_MR_R,   // memory pointed to by register <- register
+    AM_MR_R,    // memory pointed to by register <- register
     AM_MR_D8,   // memory pointed to by register <- 8-bit immediate value
     AM_MR,      // memory pointed to by register 
     AM_A16_R,   // memory[16-bit address] <- register (A)
-    AM_R_A16    // register (A) <- memory[16-bit address]
+    AM_R_A16,   // register (A) <- memory[16-bit address]
+    AM_IO_R,    // memory[0xFF00 + C] <- register
+    AM_R_IO     // register <- memory[0xFF00 + C]
 };
 
 enum class reg_type{

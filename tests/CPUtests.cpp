@@ -1556,21 +1556,506 @@ void test_opcode_40_LD_B_B()
     std::cout << "Opcode 40 (LD B,B) passed\n";
 }
 
+void test_opcode_41_LD_B_C()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_C,0x42);
+
+    bus.loadTestProgram({
+        0x41
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x42);
+
+    std::cout << "Opcode 41 (LD B,C) passed\n";
+}
+
+void test_opcode_42_LD_B_D()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_D,0x43);
+
+    bus.loadTestProgram({
+        0x42
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x43);
+
+    std::cout << "Opcode 42 (LD B,D) passed\n";
+}
+
+void test_opcode_43_LD_B_E()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_E,0x44);
+
+    bus.loadTestProgram({
+        0x43
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x44);
+
+    std::cout << "Opcode 43 (LD B,E) passed\n";
+}
+
+void test_opcode_44_LD_B_H()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_H,0x45);
+
+    bus.loadTestProgram({
+        0x44
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x45);
+
+    std::cout << "Opcode 44 (LD B,H) passed\n";
+}
+
+void test_opcode_45_LD_B_L()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_L,0x46);
+
+    bus.loadTestProgram({
+        0x45
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x46);
+
+    std::cout << "Opcode 45 (LD B,L) passed\n";
+}
+
+void test_opcode_46_LD_B_HL()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg16(reg_type::R_HL,0xC000);
+    bus.write(0xC000,0x47);
+
+    bus.loadTestProgram({
+        0x46
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x47);
+
+    std::cout << "Opcode 46 (LD B,(HL)) passed\n";
+}
+
+void test_opcode_47_LD_B_A()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0x48);
+
+    bus.loadTestProgram({
+        0x47
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_B)==0x48);
+
+    std::cout << "Opcode 47 (LD B,A) passed\n";
+}
+
+void test_opcode_48_LD_C_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_B,0x49);
+
+    bus.loadTestProgram({
+        0x48
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x49);
+
+    std::cout << "Opcode 48 (LD C,B) passed\n";
+}
+
+void test_opcode_49_LD_C_C()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_C,0x50);
+
+    bus.loadTestProgram({
+        0x49
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x50);
+
+    std::cout << "Opcode 49 (LD C,C) passed\n";
+}
+
+void test_opcode_4A_LD_C_D()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_D,0x51);
+
+    bus.loadTestProgram({
+        0x4A
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x51);
+
+    std::cout << "Opcode 4A (LD C,D) passed\n";
+}
+
+void test_opcode_4B_LD_C_E()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_E,0x52);
+
+    bus.loadTestProgram({
+        0x4B
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x52);
+
+    std::cout << "Opcode 4B (LD C,E) passed\n";
+}
+
+void test_opcode_4C_LD_C_H()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_H,0x53);
+
+    bus.loadTestProgram({
+        0x4C
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x53);
+
+    std::cout << "Opcode 4C (LD C,H) passed\n";
+}
+
+void test_opcode_4D_LD_C_L()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_L,0x54);
+
+    bus.loadTestProgram({
+        0x4D
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x54);
+
+    std::cout << "Opcode 4D (LD C,L) passed\n";
+}
+
+void test_opcode_4E_LD_C_HL()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg16(reg_type::R_HL,0xC000);
+    bus.write(0xC000,0x55);
+
+    bus.loadTestProgram({
+        0x4E
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x55);
+
+    std::cout << "Opcode 4E (LD C,(HL)) passed\n";
+}
+
+void test_opcode_4F_LD_C_A()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0x56);
+
+    bus.loadTestProgram({
+        0x4F
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_C)==0x56);
+
+    std::cout << "Opcode 4F (LD C,A) passed\n";
+}
+
+void test_opcode_80_ADD_A_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A, 0x12);
+    cpu.setReg8(reg_type::R_B, 0x34);
+
+    bus.loadTestProgram({
+        0x80
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A) == 0x46);
+
+    checkFlags(cpu, false, false, false, false);
+
+    std::cout << "Opcode 80 (ADD A,B) passed\n";
+}
+
+void test_opcode_86_ADD_A_HL()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A, 0x0F);
+    cpu.setReg16(reg_type::R_HL, 0xC000);
+
+    bus.write(0xC000,0x01);
+
+    bus.loadTestProgram({
+        0x86
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A) == 0x10);
+
+    checkFlags(cpu,false,false,true,false);
+
+    std::cout << "Opcode 86 (ADD A,(HL)) passed\n";
+}
+
+void test_opcode_87_ADD_A_A_carry()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0xFF);
+
+    bus.loadTestProgram({
+        0x87
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0xFE);
+
+    checkFlags(cpu,false,false,true,true);
+
+    std::cout << "Opcode 87 (ADD A,A carry) passed\n";
+}
+
+void test_opcode_88_ADC_A_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0x10);
+    cpu.setReg8(reg_type::R_B,0x20);
+
+    cpu.setFlag(Flag::C,true);
+
+    bus.loadTestProgram({
+        0x88
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0x31);
+
+    checkFlags(cpu,false,false,false,false);
+
+    std::cout<<"Opcode 88 (ADC A,B) passed\n";
+}
+
+void test_opcode_90_SUB_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0x10);
+    cpu.setReg8(reg_type::R_B,0x01);
+
+    bus.loadTestProgram({
+        0x90
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0x0F);
+
+    checkFlags(cpu,false,true,true,false);
+
+    std::cout<<"Opcode 90 (SUB B) passed\n";
+}
+
+void test_opcode_98_SBC_A_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0x10);
+    cpu.setReg8(reg_type::R_B,0x01);
+
+    cpu.setFlag(Flag::C,true);
+
+    bus.loadTestProgram({
+        0x98
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0x0E);
+
+    checkFlags(cpu,false,true,true,false);
+
+    std::cout<<"Opcode 98 (SBC A,B) passed\n";
+}
+
+void test_opcode_A0_AND_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0b11001100);
+    cpu.setReg8(reg_type::R_B,0b10101010);
+
+    bus.loadTestProgram({
+        0xA0
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0b10001000);
+
+    checkFlags(cpu,false,false,true,false);
+
+    std::cout<<"Opcode A0 (AND B) passed\n";
+}
+
+void test_opcode_A8_XOR_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0xFF);
+    cpu.setReg8(reg_type::R_B,0xFF);
+
+    bus.loadTestProgram({
+        0xA8
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0x00);
+
+    checkFlags(cpu,true,false,false,false);
+
+    std::cout<<"Opcode A8 (XOR B) passed\n";
+}
+
+void test_opcode_B0_OR_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0xF0);
+    cpu.setReg8(reg_type::R_B,0x0F);
+
+    bus.loadTestProgram({
+        0xB0
+    });
+
+    cpu.step();
+
+    assert(cpu.getReg8(reg_type::R_A)==0xFF);
+
+    checkFlags(cpu,false,false,false,false);
+
+    std::cout<<"Opcode B0 (OR B) passed\n";
+}
+
+void test_opcode_B8_CP_B()
+{
+    membus bus;
+    CPU cpu(&bus);
+
+    cpu.setReg8(reg_type::R_A,0x10);
+    cpu.setReg8(reg_type::R_B,0x10);
+
+    bus.loadTestProgram({
+        0xB8
+    });
+
+    cpu.step();
+
+    // A should remain unchanged
+    assert(cpu.getReg8(reg_type::R_A)==0x10);
+
+    checkFlags(cpu,true,true,false,false);
+
+    std::cout<<"Opcode B8 (CP B) passed\n";
+}
+
 int main()
 {
     test_opcode_00_NOP();
     test_opcode_01_LD_BC();
     test_opcode_02_LD_BC_A();
     test_opcode_03_INC_BC();
-
     test_opcode_04_INC_B_normal();
     test_opcode_04_INC_B_halfcarry();
     test_opcode_04_INC_B_zero();
-
     test_opcode_05_DEC_B_normal();
     test_opcode_05_DEC_B_zero();
     test_opcode_05_DEC_B_halfborrow();
-
     test_opcode_06_LD_B();
     test_opcode_07_RLCA();
     test_opcode_08_LD_a16_SP();
@@ -1581,6 +2066,7 @@ int main()
     test_opcode_0D_DEC_C();
     test_opcode_0E_LD_C();
     test_opcode_0F_RRCA();
+
     //test_opcode_10_STOP(); had to comment this out since stop was messing with the other tests, because it would set the cpu state to stopped which would not let step() happen
     test_opcode_11_LD_DE();
     test_opcode_12_LD_DE_A();
@@ -1598,9 +2084,9 @@ int main()
     test_opcode_1D_DEC_E();
     test_opcode_1E_LD_E();
     test_opcode_1F_RRA();
+
     test_opcode_20_JR_NZ_taken();
     test_opcode_20_JR_NZ_not_taken();
-
     test_opcode_21_LD_HL();
     test_opcode_22_LD_HL_INC_A();
     test_opcode_23_INC_HL();
@@ -1616,6 +2102,7 @@ int main()
     test_opcode_2D_DEC_L();
     test_opcode_2E_LD_L();
     test_opcode_2F_CPL();
+    
     test_opcode_30_JR_NC_taken();
     test_opcode_30_JR_NC_not_taken();
     test_opcode_31_LD_SP();
@@ -1634,7 +2121,36 @@ int main()
     test_opcode_3D_DEC_A();
     test_opcode_3E_LD_A();
     test_opcode_3F_CCF();
+    
     test_opcode_40_LD_B_B();
+    test_opcode_41_LD_B_C();
+    test_opcode_42_LD_B_D();
+    test_opcode_43_LD_B_E();
+    test_opcode_44_LD_B_H();
+    test_opcode_45_LD_B_L();
+    test_opcode_46_LD_B_HL();
+    test_opcode_47_LD_B_A();
+    test_opcode_48_LD_C_B();
+    test_opcode_49_LD_C_C();
+    test_opcode_4A_LD_C_D();
+    test_opcode_4B_LD_C_E();
+    test_opcode_4C_LD_C_H();
+    test_opcode_4D_LD_C_L();
+    test_opcode_4E_LD_C_HL();
+    test_opcode_4F_LD_C_A();
+    // testing from 0x50-0x7F isnt necessary since its all just LD instructions with different operands
+
+    // ALU operations
+    test_opcode_80_ADD_A_B();
+    test_opcode_86_ADD_A_HL();
+    test_opcode_87_ADD_A_A_carry();
+    test_opcode_88_ADC_A_B();
+    test_opcode_90_SUB_B();
+    test_opcode_98_SBC_A_B();
+    test_opcode_A0_AND_B();
+    test_opcode_A8_XOR_B();
+    test_opcode_B0_OR_B();
+    test_opcode_B8_CP_B();
 
     std::cout << "\nAll opcode tests passed!\n";
 

@@ -12,6 +12,8 @@ uint8_t membus::read(uint16_t addr){
     */
     uint8_t value;
 
+    if (addr == 0xFF44) return 0x90;
+    
     if(testMode){
         return memory[addr];
     }
@@ -28,20 +30,26 @@ uint8_t membus::read(uint16_t addr){
 
 }
 void membus::write(uint16_t addr, uint8_t value){
+    if(addr == 0xFF01 || addr == 0xFF02){
+        std::cout << "SERIAL WRITE addr: 0x"
+                  << std::hex << addr
+                  << " value: 0x"
+                  << (int)value
+                  << std::endl;
+    }
+
     memory[addr] = value;
 
-/*
-    Many of Blargg's tests print their results through the Game Boy's serial port instead of the screen. 
-    Specifically, they write to:
-
-    SB (0xFF01) - Serial transfer data
-    SC (0xFF02) - Serial control*/
-    if (addr == 0xFF02 && value == 0x81){
-        std::cout << (char)memory[0xFF01] << std::flush;
+    if(addr == 0xFF02 && (value & 0x80)){
+        std::cout << "OUTPUT: "
+                  << static_cast<char>(memory[0xFF01])
+                  << std::flush;
     }
+
 }
 
 // Use this to write and test each opcode to test things as instructions are implemented
 void membus::loadTestProgram(const std::vector<uint8_t>& program){
+    testMode = true;
     std::copy(program.begin(), program.end(), &memory[0x100]);
 }

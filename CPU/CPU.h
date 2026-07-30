@@ -99,6 +99,8 @@ class CPU{
         bool getFlag(Flag flag);
         bool stopped = false;
         bool halted = false;
+        void push16(uint16_t value);
+        uint16_t pop16();
     private:
         void handle_interrupts(); 
         registers reg;
@@ -106,4 +108,5 @@ class CPU{
         std::array<Instruction, 256> instruction_table;
         std::array<Handler, 256> handler_table;
         uint32_t cycle_count;
+        bool ime = false;
 };
