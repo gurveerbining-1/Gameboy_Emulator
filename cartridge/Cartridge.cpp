@@ -28,15 +28,12 @@ void Cartridge::load(const std::string &path){
 
     std::cout << "ROM size: " << rom_data.size() << "\n";
     
-  //  for (int i = 0x100; i < 0x120; i++) {
-  //      printf("ROM[%04X] = %02X\n", i, rom_data[i]);
-  //  }
-
 }
 
 void Cartridge::parseHeader(){
     cartridge_type = rom_data[0x147];
-        switch (cartridge_type)
+    //printf("Cartridge type: 0x%02X\n", cartridge_type);
+    switch (cartridge_type)
     {
         case 0x00:
             std::cout << "ROM ONLY\n";
@@ -81,10 +78,22 @@ void Cartridge::parseHeader(){
 }
 
 uint8_t Cartridge::read(uint16_t addr){
-    if (addr >= rom_data.size()) {
-        std::cerr << "ROM OOB READ: " << addr << std::endl;
+    if(addr <= 0x3FFF){
+        return rom_data[addr]; // bank 0 always fixed
+    }
+    else if(addr <= 0x7FFF){
+        // switchable bank
+        uint32_t offset = current_rom_bank * 0x4000 + (addr - 0x4000);
+        if(offset < rom_data.size()) return rom_data[offset];
         return 0xFF;
     }
-    return rom_data[addr];
+    return 0xFF;
+}
 
+void Cartridge::writeRegister(uint16_t addr, uint8_t value){
+    if(addr >= 0x2000 && addr <= 0x3FFF){
+        current_rom_bank = value & 0x1F;
+        if(current_rom_bank == 0) current_rom_bank = 1;
+        printf("MBC1: switched to bank %d\n", current_rom_bank);
+    }
 }

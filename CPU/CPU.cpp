@@ -5,12 +5,16 @@ CPU::CPU(){
     reset();
     initHandlerTable(handler_table);
     initInstructionTable(instruction_table);
+    initCBHandlerTable(cb_handler_table);
+    initCBInstructionTable(cb_instruction_table);
 }
 
 CPU::CPU(membus* b) : bus(b){
     reset();
     initHandlerTable(handler_table);
     initInstructionTable(instruction_table);
+    initCBHandlerTable(cb_handler_table);
+    initCBInstructionTable(cb_instruction_table);
 }
 
 void CPU::reset(){
@@ -48,8 +52,14 @@ void CPU::step(){
           << static_cast<int>(opcode)
           << "\n";
     */ 
-
-    execute_opcode(opcode);
+    if(opcode == 0xCB){
+        // execute CB prefix opcode
+        uint8_t cb_opcode = fetch();
+        execute_CB_opcode(cb_opcode);
+    }
+    else{
+        execute_opcode(opcode);
+    }
 }
 
 uint8_t CPU::fetch(){
@@ -251,6 +261,8 @@ void CPU::write(uint16_t addr, uint8_t val){
 }
 
 void CPU::push16(uint16_t value){
+    //printf("PUSH16 0x%04X, SP=0x%04X\n", value, reg.SP);
+
     reg.SP -= 1;
     uint8_t high_byte = (value >> 8) & 0xFF;
     write(reg.SP, high_byte);
@@ -261,11 +273,23 @@ void CPU::push16(uint16_t value){
 }
         
 uint16_t CPU::pop16(){
+    //printf("POP16 SP=0x%04X\n", reg.SP);
+
     uint8_t low = read(reg.SP);
     reg.SP += 1;
     uint8_t high = read(reg.SP);
     reg.SP += 1;
     return (static_cast<uint16_t>(high) << 8) | low;
+}
+
+void CPU::execute_CB_opcode(uint8_t opcode){
+    current_opcode = opcode;
+
+    const Instruction currentInst = cb_instruction_table[opcode];
+    const Handler currentHandler = cb_handler_table[opcode];
+
+    currentHandler(*this, currentInst);
+    update_cycles(currentInst.cycles);
 }
 
 void CPU::execute_opcode(uint8_t opcode){

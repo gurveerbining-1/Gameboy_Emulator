@@ -30,20 +30,23 @@ uint8_t membus::read(uint16_t addr){
 
 }
 void membus::write(uint16_t addr, uint8_t value){
-    if(addr == 0xFF01 || addr == 0xFF02){
-        std::cout << "SERIAL WRITE addr: 0x"
-                  << std::hex << addr
-                  << " value: 0x"
-                  << (int)value
-                  << std::endl;
-    }
+    // if(addr == 0xFF01 || addr == 0xFF02){
+    //     std::cout << "SERIAL WRITE addr: 0x"
+    //               << std::hex << addr
+    //               << " value: 0x"
+    //               << (int)value
+    //               << std::endl;
+    // }
 
+    if(addr >= 0x2000 && addr <= 0x7FFF){
+        cartridge.writeRegister(addr, value);
+        return; // don't write to flat memory array
+    }
+    
     memory[addr] = value;
 
     if(addr == 0xFF02 && (value & 0x80)){
-        std::cout << "OUTPUT: "
-                  << static_cast<char>(memory[0xFF01])
-                  << std::flush;
+        std::cout << static_cast<char>(memory[0xFF01]) << std::flush;
     }
 
 }

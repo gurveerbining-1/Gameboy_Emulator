@@ -93,7 +93,7 @@ THE 5 INTERRUPTS:
     Serial: Triggers when the Game Boy link cable finishes sending or receiving a byte of data.
     Joypad: Triggers when a button on the Game Boy is pressed, instantly waking the console from low-power states.
 
-File architecture:
+File architecture (didn't really stick to this design but helped me understand what needs to be implemented):
     src/
     │
     ├── cpu/

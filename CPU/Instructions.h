@@ -158,6 +158,9 @@ using Handler = void(*)(CPU&, const Instruction&);
 
 void initInstructionTable(std::array<Instruction, 256>& table);
 void initHandlerTable(std::array<Handler, 256>& table);
+void initCBInstructionTable(std::array<Instruction, 256>& table);
+void initCBHandlerTable(std::array<Handler, 256>& table);
+
 // use the mnemonic to execute the general functions with appropriate parameters such as handle_ld() with the operands as parameters
 // used clock cycles instead of machine cycles, 1 machine cycles = 4 clock cycles
 

@@ -87,6 +87,7 @@ class CPU{
         uint8_t fetch();
         uint16_t fetch16(); // reads two bytes, advances PC twice, assembles little-endian
         void execute_opcode(uint8_t opcode);
+        void execute_CB_opcode(uint8_t opcode);
         void update_cycles(uint8_t cycles);
         void setReg16(reg_type, uint16_t);
         uint16_t getReg16(reg_type);
@@ -107,6 +108,8 @@ class CPU{
         membus* bus;
         std::array<Instruction, 256> instruction_table;
         std::array<Handler, 256> handler_table;
+        std::array<Instruction, 256> cb_instruction_table;
+        std::array<Handler, 256> cb_handler_table;
         uint32_t cycle_count;
         bool ime = false;
 };

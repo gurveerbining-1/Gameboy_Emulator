@@ -2820,7 +2820,7 @@ void initInstructionTable(std::array<Instruction, 256>& table){
         addrmode::AM_IMP,
         operand_type::R16,
         operand_type::NONE,
-        reg_type::R_HL,
+        reg_type::R_AF,
         reg_type::R_NONE,
         condition_code::CD_NONE,
         1,
@@ -3229,7 +3229,7 @@ void op_rrca(CPU& cpu, const Instruction& inst){
     */
     uint8_t original = cpu.getReg8(reg_type::R_A);  // original value stored in register A before rotation
     uint8_t bit = (original) & 0x01; // old bit 0
-    uint8_t rotated = (original >> 1) | (bit << 7); // shift the bits left by one and set bit 0 equal to the 7th bit
+    uint8_t rotated = (original >> 1) | (bit << 7); // shift bits right by one and put old bit 0 into bit 7
     cpu.setReg8(reg_type::R_A, rotated);
 
     cpu.setFlag(Flag::C, bit); // set the carry flag to the 0th bit
@@ -3456,7 +3456,7 @@ void op_sub(CPU& cpu, const Instruction& inst){
         op2 = cpu.getReg8(inst.reg_1);
     }
     else if(inst.address_mode == addrmode::AM_MR){
-        uint16_t addr = cpu.getReg16(reg_type::R_A);
+        uint16_t addr = cpu.getReg16(inst.reg_1);
         op2 = cpu.read(addr);
     }
     else if(inst.address_mode == addrmode::AM_D8){
@@ -3492,7 +3492,7 @@ void op_sbc(CPU& cpu, const Instruction& inst){
 
     cpu.setFlag(Flag::Z, (result & 0xFF) == 0); // did the 8 bit result become zero? (& 0xFF is used to isolate the 8 bits that are actually stored) 
     cpu.setFlag(Flag::N, true);  
-    cpu.setFlag(Flag::H, ((op1 & 0xF) < (op2 & 0xF) ) + carry); // was there a borrow from bit 3 to 4? 
+    cpu.setFlag(Flag::H, (op1 & 0xF) < ((op2 & 0xF) + carry)); // was there a borrow from bit 3 to 4? 
     cpu.setFlag(Flag::C, op1 < (op2 + carry)); // did the subtraction require a borrow?  
 }
 
@@ -3650,6 +3650,7 @@ void op_0xE9_jp(CPU& cpu, const Instruction& inst){
 
 void op_call_conditional(CPU& cpu, const Instruction& inst){
     uint16_t a16 = cpu.fetch16();
+    //printf("CALL to 0x%04X, SP before=0x%04X\n", a16, cpu.getReg16(reg_type::R_SP));
 
     bool condition = false;
     switch(inst.cond_code){
@@ -3869,6 +3870,8 @@ void op_ret_conditional(CPU& cpu, const Instruction& inst){
 
     if (condition) {
         uint16_t addr = cpu.pop16();
+        //printf("RET to 0x%04X, SP after=0x%04X\n", addr, cpu.getReg16(reg_type::R_SP));
+
         cpu.setReg16(reg_type::R_PC, addr);
 
         if(inst.cond_code != condition_code::CD_NONE){
