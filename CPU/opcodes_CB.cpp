@@ -783,6 +783,2310 @@ void initCBInstructionTable(std::array<Instruction, 256>& table){
         2,
         8
     };
+
+    table[0x40] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x41] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x42] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x43] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x44] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x45] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x46] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x47] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x48] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x49] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x4A] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x4B] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x4C] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x4D] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x4E] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x4F] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x50] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x51] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x52] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x53] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x54] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x55] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x56] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x57] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x58] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x59] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x5A] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x5B] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x5C] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x5D] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x5E] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x5F] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x60] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x61] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x62] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x63] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x64] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x65] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x66] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x67] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x68] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x69] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x6A] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x6B] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x6C] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x6D] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x6E] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x6F] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x70] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x71] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x72] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x73] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x74] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x75] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x76] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x77] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x78] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x79] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x7A] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x7B] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x7C] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x7D] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x7E] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        12
+    };
+
+    table[0x7F] = {
+        mnemonic::IN_BIT,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x80] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x81] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x82] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x83] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x84] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x85] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x86] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0x87] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x88] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x89] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x8A] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x8B] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x8C] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x8D] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x8E] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0x8F] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x90] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x91] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x92] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x93] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x94] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x95] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x96] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0x97] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x98] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x99] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x9A] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x9B] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x9C] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x9D] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0x9E] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0x9F] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA0] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA1] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA2] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA3] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA4] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA5] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA6] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xA7] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA8] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xA9] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xAA] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xAB] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xAC] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xAD] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xAE] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xAF] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB0] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB1] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB2] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB3] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB4] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB5] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB6] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xB7] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB8] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xB9] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xBA] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xBB] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xBC] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xBD] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xBE] = {
+        mnemonic::IN_RES,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xBF] = {
+        mnemonic::IN_RES,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+    
+    table[0xC0] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC1] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC2] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC3] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC4] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC5] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC6] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xC7] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC8] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xC9] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xCA] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xCB] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xCC] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xCD] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xCE] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xCF] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD0] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD1] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD2] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD3] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD4] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD5] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD6] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xD7] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD8] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xD9] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xDA] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xDB] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xDC] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xDD] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xDE] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xDF] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE0] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE1] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE2] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE3] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE4] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE5] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE6] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xE7] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE8] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xE9] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xEA] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xEB] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xEC] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xED] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xEE] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xEF] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF0] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF1] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF2] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF3] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF4] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF5] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF6] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xF7] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF8] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_B,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xF9] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_C,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xFA] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_D,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xFB] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_E,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xFC] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_H,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xFD] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_L,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
+
+    table[0xFE] = {
+        mnemonic::IN_SET,
+        addrmode::AM_MR,
+        operand_type::MEM_R,
+        operand_type::NONE,
+        reg_type::R_HL,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        16
+    };
+
+    table[0xFF] = {
+        mnemonic::IN_SET,
+        addrmode::AM_R,
+        operand_type::R8,
+        operand_type::NONE,
+        reg_type::R_A,
+        reg_type::R_NONE,
+        condition_code::CD_NONE,
+        2,
+        8
+    };
 }
 
 void op_cb_unimplemented(CPU& cpu, const Instruction& inst)
@@ -792,7 +3096,7 @@ void op_cb_unimplemented(CPU& cpu, const Instruction& inst)
 
 void op_rlc(CPU& cpu, const Instruction& inst)
 {   
-    uint8_t original;
+    uint8_t original = 0;
 
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
@@ -821,7 +3125,7 @@ void op_rlc(CPU& cpu, const Instruction& inst)
 
 void op_rrc(CPU& cpu, const Instruction& inst)
 {   
-    uint8_t original;
+    uint8_t original = 0;
 
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
@@ -849,7 +3153,7 @@ void op_rrc(CPU& cpu, const Instruction& inst)
 }
 
 void op_rl(CPU& cpu, const Instruction& inst){
-    uint8_t original;
+    uint8_t original = 0;
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
         uint8_t old_carry = cpu.getFlag(Flag::C); 
@@ -878,7 +3182,7 @@ void op_rl(CPU& cpu, const Instruction& inst){
 }
 
 void op_rr(CPU& cpu, const Instruction& inst){
-    uint8_t original;
+    uint8_t original = 0;
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
         uint8_t old_carry = cpu.getFlag(Flag::C);
@@ -907,7 +3211,7 @@ void op_rr(CPU& cpu, const Instruction& inst){
 }
 
 void op_sla(CPU& cpu, const Instruction& inst){
-    uint8_t original;
+    uint8_t original = 0;
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
         uint8_t new_carry = (original >> 7) & 1; // isolate 7th bit
@@ -934,7 +3238,7 @@ void op_sla(CPU& cpu, const Instruction& inst){
 }
 
 void op_sra(CPU& cpu, const Instruction& inst){
-    uint8_t original;
+    uint8_t original = 0;
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
         uint8_t new_carry = (original) & 1; // isolate 0th bit
@@ -963,7 +3267,7 @@ void op_sra(CPU& cpu, const Instruction& inst){
 }
 
 void op_swap(CPU& cpu, const Instruction& inst){
-    uint8_t original;
+    uint8_t original = 0;
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
         uint8_t swapped = (original >> 4) | (original << 4); 
@@ -988,7 +3292,7 @@ void op_swap(CPU& cpu, const Instruction& inst){
 }
 
 void op_srl(CPU& cpu, const Instruction& inst){
-    uint8_t original;
+    uint8_t original = 0;
     if(inst.address_mode == addrmode::AM_R){
         original = cpu.getReg8(inst.reg_1);
         uint8_t new_carry = (original) & 1; // isolate 0th bit
@@ -1014,6 +3318,58 @@ void op_srl(CPU& cpu, const Instruction& inst){
     }
 }
 
+void op_bit(CPU& cpu, const Instruction& inst){
+    uint8_t value = 0;
+
+    if(inst.address_mode == addrmode::AM_R){
+        value = cpu.getReg8(inst.reg_1);
+    }
+    else if(inst.address_mode == addrmode::AM_MR){ 
+        value = cpu.read(cpu.getReg16(inst.reg_1));
+    }
+
+    uint8_t bit = (cpu.current_opcode >> 3) & 0x07; // which BIT operation? this isolates the bit and tells us
+
+    cpu.setFlag(Flag::Z, ((value >> bit) & 1) == 0); // Is the bit at position bit inside value equal to 0?
+    cpu.setFlag(Flag::N, false);
+    cpu.setFlag(Flag::H, true);
+}
+
+void op_res(CPU& cpu, const Instruction& inst){
+    uint8_t value = 0;
+
+    if(inst.address_mode == addrmode::AM_R){
+        value = cpu.getReg8(inst.reg_1);
+        uint8_t bit = (cpu.current_opcode >> 3) & 0x07; // which BIT operation? this isolates the bit and tells us
+        value &= ~(1 << bit); // reset the bit
+        cpu.setReg8(inst.reg_1, value); // write the value back
+    }
+    else if(inst.address_mode == addrmode::AM_MR){ 
+        uint16_t addr = cpu.getReg16(inst.reg_1);
+        value = cpu.read(addr);
+        uint8_t bit = (cpu.current_opcode >> 3) & 0x07; // which BIT operation? this isolates the bit and tells us
+        value &= ~(1 << bit); // reset the bit
+        cpu.write(addr, value);
+    }
+}
+
+void op_set(CPU& cpu, const Instruction& inst){
+    uint8_t value = 0;
+
+    if(inst.address_mode == addrmode::AM_R){
+        value = cpu.getReg8(inst.reg_1);
+        uint8_t bit = (cpu.current_opcode >> 3) & 0x07; // which BIT operation? this isolates the bit and tells us
+        value |= (1 << bit); // set the bit
+        cpu.setReg8(inst.reg_1, value); // write the value back
+    }
+    else if(inst.address_mode == addrmode::AM_MR){ 
+        uint16_t addr = cpu.getReg16(inst.reg_1);
+        value = cpu.read(addr);
+        uint8_t bit = (cpu.current_opcode >> 3) & 0x07; // which BIT operation? this isolates the bit and tells us
+        value |= (1 << bit); // set the bit
+        cpu.write(addr, value);
+    }
+}
 
 void initCBHandlerTable(std::array<Handler, 256>& table) {
     table.fill(op_cb_unimplemented);
@@ -1084,4 +3440,208 @@ void initCBHandlerTable(std::array<Handler, 256>& table) {
     table[0x3D] = op_srl;
     table[0x3E] = op_srl;
     table[0x3F] = op_srl;
+
+    table[0x40] = op_bit;
+    table[0x41] = op_bit;
+    table[0x42] = op_bit;
+    table[0x43] = op_bit;
+    table[0x44] = op_bit;
+    table[0x45] = op_bit;
+    table[0x46] = op_bit;
+    table[0x47] = op_bit;
+    table[0x48] = op_bit;
+    table[0x49] = op_bit;
+    table[0x4A] = op_bit;
+    table[0x4B] = op_bit;
+    table[0x4C] = op_bit;
+    table[0x4D] = op_bit;
+    table[0x4E] = op_bit;
+    table[0x4F] = op_bit;
+    
+    table[0x50] = op_bit;
+    table[0x51] = op_bit;
+    table[0x52] = op_bit;
+    table[0x53] = op_bit;
+    table[0x54] = op_bit;
+    table[0x55] = op_bit;
+    table[0x56] = op_bit;
+    table[0x57] = op_bit;
+    table[0x58] = op_bit;
+    table[0x59] = op_bit;
+    table[0x5A] = op_bit;
+    table[0x5B] = op_bit;
+    table[0x5C] = op_bit;
+    table[0x5D] = op_bit;
+    table[0x5E] = op_bit;
+    table[0x5F] = op_bit;
+    
+    table[0x60] = op_bit;
+    table[0x61] = op_bit;
+    table[0x62] = op_bit;
+    table[0x63] = op_bit;
+    table[0x64] = op_bit;
+    table[0x65] = op_bit;
+    table[0x66] = op_bit;
+    table[0x67] = op_bit;
+    table[0x68] = op_bit;
+    table[0x69] = op_bit;
+    table[0x6A] = op_bit;
+    table[0x6B] = op_bit;
+    table[0x6C] = op_bit;
+    table[0x6D] = op_bit;
+    table[0x6E] = op_bit;
+    table[0x6F] = op_bit;
+
+    table[0x70] = op_bit;
+    table[0x71] = op_bit;
+    table[0x72] = op_bit;
+    table[0x73] = op_bit;
+    table[0x74] = op_bit;
+    table[0x75] = op_bit;
+    table[0x76] = op_bit;
+    table[0x77] = op_bit;
+    table[0x78] = op_bit;
+    table[0x79] = op_bit;
+    table[0x7A] = op_bit;
+    table[0x7B] = op_bit;
+    table[0x7C] = op_bit;
+    table[0x7D] = op_bit;
+    table[0x7E] = op_bit;
+    table[0x7F] = op_bit;
+
+    table[0x80] = op_res;
+    table[0x81] = op_res;
+    table[0x82] = op_res;
+    table[0x83] = op_res;
+    table[0x84] = op_res;
+    table[0x85] = op_res;
+    table[0x86] = op_res;
+    table[0x87] = op_res;
+    table[0x88] = op_res;
+    table[0x89] = op_res;
+    table[0x8A] = op_res;
+    table[0x8B] = op_res;
+    table[0x8C] = op_res;
+    table[0x8D] = op_res;
+    table[0x8E] = op_res;
+    table[0x8F] = op_res;
+
+    table[0x90] = op_res;
+    table[0x91] = op_res;
+    table[0x92] = op_res;
+    table[0x93] = op_res;
+    table[0x94] = op_res;
+    table[0x95] = op_res;
+    table[0x96] = op_res;
+    table[0x97] = op_res;
+    table[0x98] = op_res;
+    table[0x99] = op_res;
+    table[0x9A] = op_res;
+    table[0x9B] = op_res;
+    table[0x9C] = op_res;
+    table[0x9D] = op_res;
+    table[0x9E] = op_res;
+    table[0x9F] = op_res;
+
+    table[0xA0] = op_res;
+    table[0xA1] = op_res;
+    table[0xA2] = op_res;
+    table[0xA3] = op_res;
+    table[0xA4] = op_res;
+    table[0xA5] = op_res;
+    table[0xA6] = op_res;
+    table[0xA7] = op_res;
+    table[0xA8] = op_res;
+    table[0xA9] = op_res;
+    table[0xAA] = op_res;
+    table[0xAB] = op_res;
+    table[0xAC] = op_res;
+    table[0xAD] = op_res;
+    table[0xAE] = op_res;
+    table[0xAF] = op_res;
+
+    table[0xB0] = op_res;
+    table[0xB1] = op_res;
+    table[0xB2] = op_res;
+    table[0xB3] = op_res;
+    table[0xB4] = op_res;
+    table[0xB5] = op_res;
+    table[0xB6] = op_res;
+    table[0xB7] = op_res;
+    table[0xB8] = op_res;
+    table[0xB9] = op_res;
+    table[0xBA] = op_res;
+    table[0xBB] = op_res;
+    table[0xBC] = op_res;
+    table[0xBD] = op_res;
+    table[0xBE] = op_res;
+    table[0xBF] = op_res;
+
+    table[0xC0] = op_set;
+    table[0xC1] = op_set;
+    table[0xC2] = op_set;
+    table[0xC3] = op_set;
+    table[0xC4] = op_set;
+    table[0xC5] = op_set;
+    table[0xC6] = op_set;
+    table[0xC7] = op_set;
+    table[0xC8] = op_set;
+    table[0xC9] = op_set;
+    table[0xCA] = op_set;
+    table[0xCB] = op_set;
+    table[0xCC] = op_set;
+    table[0xCD] = op_set;
+    table[0xCE] = op_set;
+    table[0xCF] = op_set;
+
+    table[0xD0] = op_set;
+    table[0xD1] = op_set;
+    table[0xD2] = op_set;
+    table[0xD3] = op_set;
+    table[0xD4] = op_set;
+    table[0xD5] = op_set;
+    table[0xD6] = op_set;
+    table[0xD7] = op_set;
+    table[0xD8] = op_set;
+    table[0xD9] = op_set;
+    table[0xDA] = op_set;
+    table[0xDB] = op_set;
+    table[0xDC] = op_set;
+    table[0xDD] = op_set;
+    table[0xDE] = op_set;
+    table[0xDF] = op_set;
+
+    table[0xE0] = op_set;
+    table[0xE1] = op_set;
+    table[0xE2] = op_set;
+    table[0xE3] = op_set;
+    table[0xE4] = op_set;
+    table[0xE5] = op_set;
+    table[0xE6] = op_set;
+    table[0xE7] = op_set;
+    table[0xE8] = op_set;
+    table[0xE9] = op_set;
+    table[0xEA] = op_set;
+    table[0xEB] = op_set;
+    table[0xEC] = op_set;
+    table[0xED] = op_set;
+    table[0xEE] = op_set;
+    table[0xEF] = op_set;
+
+    table[0xF0] = op_set;
+    table[0xF1] = op_set;
+    table[0xF2] = op_set;
+    table[0xF3] = op_set;
+    table[0xF4] = op_set;
+    table[0xF5] = op_set;
+    table[0xF6] = op_set;
+    table[0xF7] = op_set;
+    table[0xF8] = op_set;
+    table[0xF9] = op_set;
+    table[0xFA] = op_set;
+    table[0xFB] = op_set;
+    table[0xFC] = op_set;
+    table[0xFD] = op_set;
+    table[0xFE] = op_set;
+    table[0xFF] = op_set;
 }
