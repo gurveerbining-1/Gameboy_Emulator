@@ -102,6 +102,10 @@ class CPU{
         bool halted = false;
         void push16(uint16_t value);
         uint16_t pop16();
+        void setIME(bool value);
+        void setIME_pending(bool value);
+        uint64_t getCycles();
+        uint8_t getLastCycles();
     private:
         void handle_interrupts(); 
         registers reg;
@@ -110,6 +114,9 @@ class CPU{
         std::array<Handler, 256> handler_table;
         std::array<Instruction, 256> cb_instruction_table;
         std::array<Handler, 256> cb_handler_table;
-        uint32_t cycle_count;
+        uint64_t cycle_count;
+        uint8_t last_cycles;
         bool ime = false;
+        bool ime_pending = false;
+        uint8_t ime_delay = 0;
 };

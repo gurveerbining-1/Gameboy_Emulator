@@ -3882,17 +3882,16 @@ void op_ret_conditional(CPU& cpu, const Instruction& inst){
 
 void op_reti(CPU& cpu, const Instruction& inst){
     cpu.setReg16(reg_type::R_PC, cpu.pop16());
-    // MAKE SURE TO ENABLE INTERRUPTS, cpu.enableInterrupts();
+    cpu.setIME(true); 
 }
 
 void op_di(CPU& cpu, const Instruction& inst){
-    // TODO: disable interrupts
-    // cpu.setIME(false)
+    cpu.setIME(false);
+    cpu.setIME_pending(false);
 }
 
 void op_ei(CPU& cpu, const Instruction& inst){
-    // TODO: enable interrupts
-    // cpu.setIME(true)
+    cpu.setIME_pending(true);
 }
 
 void initHandlerTable(std::array<Handler, 256>& table) {

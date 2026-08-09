@@ -27,16 +27,18 @@ FF00-FF7F           IO registers
 #include <string>
 #include "../cartridge/Cartridge.h"
 
+class timer;
+
 class membus{
     public:
         uint8_t read(uint16_t addr);
         void write(uint16_t addr, uint8_t value);
         void loadCartridge(const std::string& path);
         void loadTestProgram(const std::vector<uint8_t>& program);
+        void setTimer(timer* t);
     private:
         Cartridge cartridge;
+        timer* timr = nullptr;
         uint8_t memory[65536]; 
         bool testMode = false;
-
-        bool bootROM(); 
 };

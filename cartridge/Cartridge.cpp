@@ -20,7 +20,7 @@ void Cartridge::load(const std::string &path){
     file.seekg(0, std::ios::end);
     const auto size = static_cast<std::size_t>(file.tellg());
     file.seekg(0, std::ios::beg);
-
+    
     rom_data.resize(size);
     file.read(reinterpret_cast<char*>(rom_data.data()), size);
     

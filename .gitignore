@@ -1,6 +1,7 @@
 # Build directories
 build/
 cmake-build-*/
+ROMs/
 
 # CMake generated files
 CMakeCache.txt

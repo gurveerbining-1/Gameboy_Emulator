@@ -1,10 +1,15 @@
 #include "membus.h"
 #include "../cartridge/Cartridge.h"
+#include "../timer/timer.h"
 
 void membus::loadCartridge(const std::string& path){
     cartridge.load(path);
     
 }   
+
+void membus::setTimer(timer *t){
+    timr = t;
+}
 
 uint8_t membus::read(uint16_t addr){
     /*
@@ -12,7 +17,7 @@ uint8_t membus::read(uint16_t addr){
     */
     uint8_t value;
 
-    if (addr == 0xFF44) return 0x90;
+    //if (addr == 0xFF44) return 0x90;
     
     if(testMode){
         return memory[addr];
@@ -24,6 +29,10 @@ uint8_t membus::read(uint16_t addr){
         value = memory[addr];
     }
 
+    if(addr == 0xFF04) return timr->getDiv();
+    if(addr == 0xFF05) return timr->getTima();
+    if(addr == 0xFF06) return timr->getTma();
+    if(addr == 0xFF07) return timr->getTac();
     //printf("READ %04X -> %02X\n", addr, value);
 
     return value;
@@ -48,6 +57,10 @@ void membus::write(uint16_t addr, uint8_t value){
     if(addr == 0xFF02 && (value & 0x80)){
         std::cout << static_cast<char>(memory[0xFF01]) << std::flush;
     }
+    if(addr == 0xFF04){ timr->setDiv(0); return; }  // writing DIV always resets to 0
+    if(addr == 0xFF05){ timr->setTima(value); return; }
+    if(addr == 0xFF06){ timr->setTma(value); return; }
+    if(addr == 0xFF07){ timr->setTac(value); return; }
 
 }
 

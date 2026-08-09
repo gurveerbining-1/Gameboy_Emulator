@@ -31,15 +31,81 @@ void CPU::reset(){
     reg.PC = 0x0100; // I plan to emulate the boot rom so PC = 0x0000, emulators that skip the boot rom start PC = 0x0100
     reg.SP = 0xFFFE;
     
+    cycle_count = 0;
+    last_cycles = 0;
 }
    
 void CPU::handle_interrupts(){
+    /*
+    If IME is false, do nothing and return
+    Read IE (0xFFFF) and IF (0xFF0F)
+    If IE & IF is zero, nothing is pending, return
+    Find the lowest set bit in IE & IF — that's the highest priority interrupt
+    Clear that bit in IF
+    Set IME = false
+    Push current PC onto the stack
+    Jump to the corresponding vector from interrupt_vectors array
+    If CPU was halted, wake it up (halted = false)
+    */
+
+    uint8_t IE = read(0xFFFF);
+    uint8_t IF = read(0xFF0F);
+    uint8_t pending = IE & IF;
+
+    if(halted && pending){
+        halted = false;
+    }
+
+    if(!ime){
+        return;
+    }
+
+    if(pending == 0){
+        return;
+    }
+
+    halted = false;
+
+    uint8_t index = 0;
+    for(uint8_t i = 0; i < 5; i++){
+        if (pending & (1 << i)) {
+        // Interrupt i is the highest-priority pending interrupt
+            index = i;
+            break;
+        }
+    }
+
+    ime = false;
+
+    // clear the bit then write it to 0xFF0F
+    IF &= ~(1 << index);
+    write(0xFF0F, IF);
     
+
+    uint16_t value = getReg16(reg_type::R_PC);
+    push16(value);
+
+    // jump to current vector from interrupt_vectors
+    setReg16(reg_type::R_PC, interrupt_vectors[index]);
+}
+
+void CPU::setIME(bool value){
+    ime = value;
+    if (!value) ime_delay = 0;
+}
+
+void CPU::setIME_pending(bool value){
+    if(value){
+        ime_delay = 2;
+    }
 }
 
 void CPU::step(){
-    if(halted) return;
     handle_interrupts();
+
+    if(halted){
+        return;
+    }
     
     uint16_t oldPC = reg.PC;
 
@@ -59,6 +125,14 @@ void CPU::step(){
     }
     else{
         execute_opcode(opcode);
+    }
+
+    if(ime_delay > 0){
+        ime_delay--;
+
+        if(ime_delay == 0){
+            ime = true;
+        }
     }
 }
 
@@ -84,6 +158,14 @@ uint16_t CPU::fetch16(){
 void CPU::update_cycles(uint8_t cycles){
     cycle_count += cycles;
 }  
+
+uint8_t CPU::getLastCycles(){
+    return last_cycles;
+}
+
+uint64_t CPU::getCycles(){
+    return cycle_count;
+}
 
 void CPU::setReg16(reg_type target_reg, uint16_t value){
     /*
@@ -289,6 +371,7 @@ void CPU::execute_CB_opcode(uint8_t opcode){
     const Handler currentHandler = cb_handler_table[opcode];
 
     currentHandler(*this, currentInst);
+    last_cycles = currentInst.cycles;
     update_cycles(currentInst.cycles);
 }
 
@@ -302,6 +385,7 @@ void CPU::execute_opcode(uint8_t opcode){
     //std::cout << "Handler ptr: " << (void*)currentHandler << std::endl;
 
     currentHandler(*this, currentInst);
+    last_cycles = currentInst.cycles;
     update_cycles(currentInst.cycles);
     
     //instructionTable tells you what an instruction is, but execute_opcode still has no idea what to do with it.

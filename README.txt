@@ -93,6 +93,44 @@ THE 5 INTERRUPTS:
     Serial: Triggers when the Game Boy link cable finishes sending or receiving a byte of data.
     Joypad: Triggers when a button on the Game Boy is pressed, instantly waking the console from low-power states.
 
+PPU:
+Tile data is stored in VRAM at the memory location 0x8000-0x97FF, each tile takes 16 bytes and this area defines data for 384 tiles
+each tile is 8x8 pixels and a colour depth of 2 bits per pixel which allows each pixel to use 1 of 4 colours or gray shades. Colour 0
+means the object is transparent so the background or other objects behind it are able to be shown. There are 3 blocks of 128 tiles each:
+
+        Tile Data Area
+$8000 +----------------+
+      | Block 0        |
+      | Tiles 0-127    |
+$8800 +----------------+
+      | Block 1        |
+      | Tiles 128-255  |
+$9000 +----------------+
+      | Block 2        |
+      | Tiles 0-127    |
+$9800 +----------------+
+
+Block 0 and Block 2 both have tiles numbered 0-127 because there are two ways to address tiles.
+    - The “$8000 method” uses $8000 as its base pointer and uses an unsigned addressing, 
+        meaning that tiles 0-127 are in block 0, and tiles 128-255 are in block 1.
+    - The “$8800 method” uses $9000 as its base pointer and uses a signed addressing, 
+        meaning that tiles 0-127 are in block 2, and tiles -128 to -1 are in block 1; or, to put it differently, 
+        “$8800 addressing” takes tiles 0-127 from block 2 and tiles 128-255 from block 1.
+
+The Game Boy contains two 32×32 tile maps in VRAM at the memory areas 
+$9800-$9BFF and $9C00-$9FFF. Any of these maps can be used to display the Background or the Window.
+
+Since one tile has 8×8 pixels, each map holds a 256×256 pixels picture. Only 160×144 of those pixels are displayed on 
+the LCD at any given time.
+
+The PPU draws the screen line by line, 144 lines per frame, at 60fps. It doesn't draw the whole screen at once
+it works through a state machine that cycles through four modes for each scanline:
+
+Mode 2 — OAM Scan (80 cycles): finds which sprites appear on this line
+Mode 3 — Drawing (172 cycles): actually outputs pixels for this line
+Mode 0 — HBlank (204 cycles): rest period after each line
+Mode 1 — VBlank (4560 cycles total): 10 "lines" of rest after line 143
+
 File architecture (didn't really stick to this design but helped me understand what needs to be implemented):
     src/
     │

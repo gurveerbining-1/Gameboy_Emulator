@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-
+#include "bootROM.h"
 
 class Cartridge{
     public:
