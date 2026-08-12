@@ -15,6 +15,7 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
     platform/*.cpp
     PPU/*.cpp
     timer/*.cpp
+    input/*.cpp
 )
 
 add_executable(gb_emulator ${SOURCES})
@@ -37,6 +38,7 @@ file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS
     cartridge/*.cpp
     CPU/*.cpp 
     timer/*.cpp
+    input/*.cpp
 )
 
 add_executable(cpu_tests 

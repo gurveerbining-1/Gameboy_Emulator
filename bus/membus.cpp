@@ -1,6 +1,7 @@
 #include "membus.h"
 #include "../cartridge/Cartridge.h"
 #include "../timer/timer.h"
+#include "../input/Joypad.h"
 
 void membus::loadCartridge(const std::string& path){
     cartridge.load(path);
@@ -9,6 +10,10 @@ void membus::loadCartridge(const std::string& path){
 
 void membus::setTimer(timer *t){
     timr = t;
+}
+
+void membus::setJoypad(Joypad *j){
+    pad = j;
 }
 
 uint8_t membus::read(uint16_t addr){
@@ -28,11 +33,11 @@ uint8_t membus::read(uint16_t addr){
     } else {
         value = memory[addr];
     }
-
-    if(addr == 0xFF04) return timr->getDiv();
-    if(addr == 0xFF05) return timr->getTima();
-    if(addr == 0xFF06) return timr->getTma();
-    if(addr == 0xFF07) return timr->getTac();
+    if(addr == 0xFF00){ return pad->read(); }
+    if(addr == 0xFF04){ return timr->getDiv(); }
+    if(addr == 0xFF05){ return timr->getTima(); }
+    if(addr == 0xFF06){ return timr->getTma(); }
+    if(addr == 0xFF07){ return timr->getTac(); }
     //printf("READ %04X -> %02X\n", addr, value);
 
     return value;
@@ -54,6 +59,7 @@ void membus::write(uint16_t addr, uint8_t value){
     
     memory[addr] = value;
 
+    if(addr == 0xFF00) pad->write(value);
     if(addr == 0xFF02 && (value & 0x80)){
         std::cout << static_cast<char>(memory[0xFF01]) << std::flush;
     }

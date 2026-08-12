@@ -4,6 +4,7 @@
 #include "../CPU/CPU.h"
 #include "../PPU/PPU.h"
 #include "../timer/timer.h"
+#include "../input/Joypad.h"
 
 int main(int argc, char* argv[])
 {
@@ -69,7 +70,12 @@ int main(int argc, char* argv[])
     PPU ppu(&mem);
     timer tmr(&mem);     // timer gets bus pointer for interrupt requests
     mem.setTimer(&tmr);  // bus gets timer pointer for register routing
+    Joypad jpad(&mem);   // joypad gets bus pointer for interrupt requests
+    mem.setJoypad(&jpad);// bus gets joypad pointer for routing
     uint32_t last_frame_cycles = 0;
+    const double FRAME_DURATION_MS = (70224.0 / 4194304.0) * 1000.0; // ~16.7427 ms, real DMG frame time, number of clock cycles in one frame: 70224, gameboy clock speed: 4,194,304 Hz, multiply by 1000 to convert seconds to milliseconds
+    double next_frame_due = SDL_GetTicks();
+
     
     while (!done)
     {
@@ -81,26 +87,93 @@ int main(int argc, char* argv[])
             {
                 done = true;
             }
+            
+            if (event.type == SDL_KEYDOWN && !event.key.repeat)
+            {
+                switch (event.key.keysym.sym)
+                {
+                    case SDLK_RIGHT:
+                        jpad.buttonPress(Joypad::BTN_RIGHT);
+                        break;
+
+                    case SDLK_LEFT:
+                        jpad.buttonPress(Joypad::BTN_LEFT);
+                        break;
+
+                    case SDLK_UP:
+                        jpad.buttonPress(Joypad::BTN_UP);
+                        break;
+
+                    case SDLK_DOWN:
+                        jpad.buttonPress(Joypad::BTN_DOWN);
+                        break;
+
+                    case SDLK_z:
+                        jpad.buttonPress(Joypad::BTN_A);
+                        break;
+
+                    case SDLK_x:
+                        jpad.buttonPress(Joypad::BTN_B);
+                        break;
+
+                    case SDLK_c:
+                        jpad.buttonPress(Joypad::BTN_START);
+                        break;
+
+                    case SDLK_v:
+                        jpad.buttonPress(Joypad::BTN_SELECT);
+                        break;
+                }
+            }
+
+            if (event.type == SDL_KEYUP)
+            {
+                switch (event.key.keysym.sym)
+                {
+                    case SDLK_RIGHT:
+                        jpad.buttonRelease(Joypad::BTN_RIGHT);
+                        break;
+
+                    case SDLK_LEFT:
+                        jpad.buttonRelease(Joypad::BTN_LEFT);
+                        break;
+
+                    case SDLK_UP:
+                        jpad.buttonRelease(Joypad::BTN_UP);
+                        break;
+
+                    case SDLK_DOWN:
+                        jpad.buttonRelease(Joypad::BTN_DOWN);
+                        break;
+
+                    case SDLK_z:
+                        jpad.buttonRelease(Joypad::BTN_A);
+                        break;
+
+                    case SDLK_x:
+                        jpad.buttonRelease(Joypad::BTN_B);
+                        break;
+
+                    case SDLK_c:
+                        jpad.buttonRelease(Joypad::BTN_START);
+                        break;
+
+                    case SDLK_v:
+                        jpad.buttonRelease(Joypad::BTN_SELECT);
+                        break;
+                    }
+                }
         }
 
-        /*
-        Create a membus
-        Call bus.loadCartridge("path/to/rom.gb")
-        Create a CPU(&bus)
-        In the game loop, call cpu.step() some number of times per frame (roughly 17556 times per frame at 60fps for a DMG)
+        uint32_t frame_cycles = 0;
 
-        Before building the real PPU, stub it so 02-interrupts.gb can run. In your main loop, after every cpu.step(),
-        increment a cycle counter. When it reaches 17556 cycles (one frame), 
-        write 0x90 to 0xFF44 (LY) and request a VBlank interrupt by setting bit 0 of IF:
-        bus.write(0xFF0F, bus.read(0xFF0F) | 0x01);
-        The Game Boy runs at 4,194,304 cycles per second at 60fps, 
-        which means one frame is about 70224 cycles. When cycle_count crosses that threshold, 
-        fire the VBlank interrupt and reset the counter.
-        */
-        for (int i = 0; i < 17556; i++) {
+        while (frame_cycles < 70224) {
+            uint8_t cycles = cpu.getLastCycles();
             cpu.step();
-            ppu.step(cpu.getLastCycles());
-            tmr.step(cpu.getLastCycles());
+            ppu.step(cycles);
+            tmr.step(cycles);
+            frame_cycles += cycles;
+            
             if(ppu.isFrameReady()){
                 // update texture and renderer
                 void* pixels;
@@ -138,19 +211,14 @@ int main(int argc, char* argv[])
                 ppu.clearFrameReady(); // reset
             }
         }
-        
-        /*
-        if (cpu.getCycles() - last_frame_cycles >= 70224)
-        {
-            last_frame_cycles += 70224;
 
-            mem.write(0xFF44, 144);
-
-            uint8_t IF = mem.read(0xFF0F);
-            mem.write(0xFF0F, IF | 0x01);
+        next_frame_due += FRAME_DURATION_MS;
+        double now = SDL_GetTicks();
+        if (now < next_frame_due) {
+            SDL_Delay(static_cast<Uint32>(next_frame_due - now));
+        } else {
+            next_frame_due = now; // fell behind (e.g. a slow frame) — resync instead of bursting to catch up
         }
-        */
-        
        
     }
     SDL_DestroyTexture(texture);

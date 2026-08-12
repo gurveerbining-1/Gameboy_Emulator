@@ -28,6 +28,7 @@ FF00-FF7F           IO registers
 #include "../cartridge/Cartridge.h"
 
 class timer;
+class Joypad;
 
 class membus{
     public:
@@ -36,9 +37,11 @@ class membus{
         void loadCartridge(const std::string& path);
         void loadTestProgram(const std::vector<uint8_t>& program);
         void setTimer(timer* t);
+        void setJoypad(Joypad* j);
     private:
         Cartridge cartridge;
         timer* timr = nullptr;
+        Joypad* pad = nullptr;
         uint8_t memory[65536]; 
         bool testMode = false;
 };
