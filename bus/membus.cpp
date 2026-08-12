@@ -61,7 +61,14 @@ void membus::write(uint16_t addr, uint8_t value){
     if(addr == 0xFF05){ timr->setTima(value); return; }
     if(addr == 0xFF06){ timr->setTma(value); return; }
     if(addr == 0xFF07){ timr->setTac(value); return; }
-
+    //if (addr == 0xFF40) printf("LCDC write: %02X\n", value);
+    if(addr == 0xFF46){
+        uint16_t source = static_cast<uint16_t>(value) << 8;
+        for(int i = 0; i <= 0x9F; i++){
+            memory[0xFE00 + i] = read(static_cast<uint16_t>(source + i));
+        }
+        return;
+    }
 }
 
 // Use this to write and test each opcode to test things as instructions are implemented

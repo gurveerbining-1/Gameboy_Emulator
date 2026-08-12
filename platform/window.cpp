@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     }
 
     window = SDL_CreateWindow(
-        "Emulator",
+        "Game Boy",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         640,
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
     }
 
     membus mem;
-    mem.loadCartridge("../../ROMs/cpu_instrs.gb");
+    mem.loadCartridge("../../ROMs/dmg-acid2.gb");
     CPU cpu(&mem);
     PPU ppu(&mem);
     timer tmr(&mem);     // timer gets bus pointer for interrupt requests
