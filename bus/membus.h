@@ -26,12 +26,14 @@ FF00-FF7F           IO registers
 #include <cstdint>
 #include <string>
 #include "../cartridge/Cartridge.h"
+#include "../cartridge/MBC1.h"
 
 class timer;
 class Joypad;
 
 class membus{
     public:
+        membus();
         uint8_t read(uint16_t addr);
         void write(uint16_t addr, uint8_t value);
         void loadCartridge(const std::string& path);
@@ -39,7 +41,7 @@ class membus{
         void setTimer(timer* t);
         void setJoypad(Joypad* j);
     private:
-        Cartridge cartridge;
+        std::unique_ptr<Cartridge> cartridge;
         timer* timr = nullptr;
         Joypad* pad = nullptr;
         uint8_t memory[65536]; 

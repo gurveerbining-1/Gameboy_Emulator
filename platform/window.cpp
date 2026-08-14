@@ -63,7 +63,7 @@ int main(int argc, char* argv[])
         SDL_Quit();
         return 1;
     }
-
+    
     membus mem;
     mem.loadCartridge("../../ROMs/dmg-acid2.gb");
     CPU cpu(&mem);

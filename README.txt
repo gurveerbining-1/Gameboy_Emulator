@@ -131,6 +131,16 @@ Mode 3 — Drawing (172 cycles): actually outputs pixels for this line
 Mode 0 — HBlank (204 cycles): rest period after each line
 Mode 1 — VBlank (4560 cycles total): 10 "lines" of rest after line 143
 
+JOYPAD:
+    A       — z
+    B       — x
+    Start   — c
+    Select  — v
+    Left    — left arrow
+    Right   — right arrow
+    Up      — up arrow
+    Down    — down arrow
+
 File architecture (didn't really stick to this design but helped me understand what needs to be implemented):
     src/
     │

@@ -30,9 +30,12 @@ void Cartridge::load(const std::string &path){
     
 }
 
+uint8_t Cartridge::getCartridgeType(){
+    return cartridge_type;
+}
+
 void Cartridge::parseHeader(){
     cartridge_type = rom_data[0x147];
-    //printf("Cartridge type: 0x%02X\n", cartridge_type);
     switch (cartridge_type)
     {
         case 0x00:

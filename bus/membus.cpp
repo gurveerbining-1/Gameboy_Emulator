@@ -3,9 +3,48 @@
 #include "../timer/timer.h"
 #include "../input/Joypad.h"
 
+membus::membus() : cartridge(std::make_unique<Cartridge>()){}
+
 void membus::loadCartridge(const std::string& path){
-    cartridge.load(path);
-    
+    cartridge->load(path);
+    uint8_t type = cartridge->getCartridgeType();
+    if(type == 0x01 || type == 0x02 || type == 0x03){
+        /*
+        $01	MBC1
+        $02	MBC1+RAM
+        $03	MBC1+RAM+BATTERY
+        */
+        cartridge = std::make_unique<MBC1>();
+        cartridge->load(path);
+    }
+    else if(type == 0x05 || type == 0x06){
+        /*
+        $05	MBC2
+        $06	MBC2+BATTERY
+        */
+        //cartridge = std::make_unique<MBC2>();
+        //cartridge->load(path);
+        
+    }
+    else if(type == 0x0F || type == 0x10 || type == 0x11 || type == 0x12 || type == 0x13){
+        /*
+        $0F	MBC3+TIMER+BATTERY
+        $10	MBC3+TIMER+RAM+BATTERY 12
+        $11	MBC3
+        $12	MBC3+RAM 12
+        $13	MBC3+RAM+BATTERY 
+        */
+        //cartridge = std::make_unique<MBC3>();
+        //cartridge->load(path);
+    }
+    /*
+    read the file
+    peek at byte 0x147
+    if type is 0x01/0x02/0x03: cartridge = make_unique<MBC1>()
+    else if type is MBC3: cartridge = make_unique<MBC3>()
+    else: cartridge = make_unique<Cartridge>()
+    cartridge->load(path)
+    */
 }   
 
 void membus::setTimer(timer *t){
@@ -28,9 +67,10 @@ uint8_t membus::read(uint16_t addr){
         return memory[addr];
     }
 
-    if(addr <= 0x7FFF) {
-        value = cartridge.read(addr);
-    } else {
+    if(addr <= 0x7FFF || (addr >= 0xA000 && addr <= 0xBFFF)){
+        value = cartridge->read(addr);
+    } 
+    else {
         value = memory[addr];
     }
     if(addr == 0xFF00){ return pad->read(); }
@@ -52,9 +92,13 @@ void membus::write(uint16_t addr, uint8_t value){
     //               << std::endl;
     // }
 
-    if(addr >= 0x2000 && addr <= 0x7FFF){
-        cartridge.writeRegister(addr, value);
+    if(addr <= 0x7FFF){
+        cartridge->writeRegister(addr, value);
         return; // don't write to flat memory array
+    }
+    if(addr >= 0xA000 && addr <= 0xBFFF){
+        cartridge->writeRegister(addr, value);
+        return;
     }
     
     memory[addr] = value;

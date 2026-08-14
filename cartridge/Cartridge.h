@@ -4,14 +4,18 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <memory>
 #include "bootROM.h"
 
 class Cartridge{
     public:
         void load(const std::string& path);
-        uint8_t read(uint16_t addr);
+        virtual uint8_t read(uint16_t addr);
+        virtual void writeRegister(uint16_t addr, uint8_t value);
+        uint8_t getCartridgeType();
+    protected: // moved these to protected for the MBC subclasses
         std::vector<uint8_t> rom_data;
-        void writeRegister(uint16_t addr, uint8_t value);
+        uint8_t cartridge_type;
 
     private:
         uint8_t entry[4]; // Most commercial games fill this 4-byte area with a nop instruction followed by a jp $0150
@@ -19,20 +23,7 @@ class Cartridge{
         0x00, 0x08, 0x11, 0x1F, 0x88, 0x89, 0x00, 0x0E, 0xDC, 0xCC, 0x6E, 0xE6, 0xDD, 0xDD, 0xD9, 0x99, 0xBB, 0xBB, 0x67, 0x63, 
         0x6E, 0x0E, 0xEC, 0xCC, 0xDD, 0xDC, 0x99, 0x9F, 0xBB, 0xB9, 0x33, 0x3E}; // 48 hex bytes
         void parseHeader();
-        uint8_t cartridge_type;
+
         uint8_t current_rom_bank = 1;
-        /*
-        char title[16]; //16 character title, padded with 00s if less than 16
-        uint8_t cgbflag;
-        uint16_t new_license_code;
-        uint8_t sgbflag;
-        uint8_t cartridge_type;
-        uint8_t ROM_size;
-        uint8_t RAM_size;
-        uint8_t dest_code; // either Japan (0x0) or overseas (0x1)
-        uint8_t old_license_code; // 0x33 (or $33 as written in pandocs) indicates that the new license code must be used instead 
-        uint8_t version; // mask rom version number
-        uint8_t checksum; // bootrom verifies the checksum 
-        uint8_t global_checksum;
-        */
+        
 };  
