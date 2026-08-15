@@ -23,7 +23,6 @@ void timer::step(uint8_t cycles){
     while(div_cycles >= 256){
         div_cycles -= 256;
         div++;
-        bus->write(0xFF04, div);
     }
 
     // TIMA only increments if timer is enabled (TAC bit 2)
