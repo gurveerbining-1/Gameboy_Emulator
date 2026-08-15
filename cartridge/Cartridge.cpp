@@ -17,6 +17,8 @@ void Cartridge::load(const std::string &path){
         throw std::runtime_error("Failed to open ROM: " + path);
     }
 
+    rom_path = path;
+    sav_path = path.substr(0, path.find_last_of('.')) + ".sav";
     file.seekg(0, std::ios::end);
     const auto size = static_cast<std::size_t>(file.tellg());
     file.seekg(0, std::ios::beg);
@@ -28,6 +30,11 @@ void Cartridge::load(const std::string &path){
 
     std::cout << "ROM size: " << rom_data.size() << "\n";
     
+}
+
+void Cartridge::save(){
+    // Plain ROM-only cartridges have no battery-backed RAM to persist.
+    // MBC subclasses with a battery (MBC1+BATTERY, MBC3+BATTERY, etc.) override this.
 }
 
 uint8_t Cartridge::getCartridgeType(){

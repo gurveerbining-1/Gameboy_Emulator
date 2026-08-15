@@ -5,7 +5,8 @@ class MBC1 : public Cartridge{
         MBC1();
         uint8_t read(uint16_t addr);
         void writeRegister(uint16_t addr, uint8_t value);
-
+        void save();
+        void load(const std::string& path);
     private:
         bool ram_enabled;               // bool, only allow RAM reads/writes when true
         uint8_t rom_bank;               // 5-bit value (bits 0-4), the lower ROM bank number

@@ -6,8 +6,12 @@
 membus::membus() : cartridge(std::make_unique<Cartridge>()){}
 
 void membus::loadCartridge(const std::string& path){
-    cartridge->load(path);
-    uint8_t type = cartridge->getCartridgeType();
+    // peek type without loading everything
+    std::ifstream f(path, std::ios::binary);
+    f.seekg(0x147);
+    uint8_t type = f.get();
+    f.close();
+    
     if(type == 0x01 || type == 0x02 || type == 0x03){
         /*
         $01	MBC1
@@ -15,7 +19,6 @@ void membus::loadCartridge(const std::string& path){
         $03	MBC1+RAM+BATTERY
         */
         cartridge = std::make_unique<MBC1>();
-        cartridge->load(path);
     }
     else if(type == 0x05 || type == 0x06){
         /*
@@ -36,15 +39,11 @@ void membus::loadCartridge(const std::string& path){
         */
         //cartridge = std::make_unique<MBC3>();
         //cartridge->load(path);
+        cartridge = std::make_unique<MBC3>();
     }
-    /*
-    read the file
-    peek at byte 0x147
-    if type is 0x01/0x02/0x03: cartridge = make_unique<MBC1>()
-    else if type is MBC3: cartridge = make_unique<MBC3>()
-    else: cartridge = make_unique<Cartridge>()
-    cartridge->load(path)
-    */
+
+    cartridge->load(path);  // calls the right override, only loads once
+   
 }   
 
 void membus::setTimer(timer *t){
@@ -119,6 +118,10 @@ void membus::write(uint16_t addr, uint8_t value){
         }
         return;
     }
+}
+
+void membus::saveCartridge(){
+    cartridge->save();
 }
 
 // Use this to write and test each opcode to test things as instructions are implemented

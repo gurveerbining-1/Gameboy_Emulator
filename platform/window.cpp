@@ -221,6 +221,7 @@ int main(int argc, char* argv[])
         }
        
     }
+    mem.saveCartridge();
     SDL_DestroyTexture(texture);
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer); 

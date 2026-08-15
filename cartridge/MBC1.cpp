@@ -4,6 +4,35 @@ MBC1::MBC1() : ram_data(4 * 8192), ram_enabled(false), rom_bank(1), upper_bits(0
     // initialize ram_data, allocate 32kb space for now, ram size is in the header at 0x0149
 }
 
+void MBC1::load(const std::string& path){
+    Cartridge::load(path);  // call base first, populates rom_data, sets sav_path
+    
+    // NOW rom_data is populated, safe to read header
+    uint8_t ram_size_code = rom_data[0x0149];
+    size_t ram_size = 0;
+    switch(ram_size_code){
+        case 0x00: ram_size = 0;       break;
+        case 0x01: ram_size = 2048;    break;
+        case 0x02: ram_size = 8192;    break;
+        case 0x03: ram_size = 32768;   break;
+        case 0x04: ram_size = 131072;  break;
+    }
+    ram_data.resize(ram_size, 0xFF);
+    
+    // load save file if it exists
+    std::ifstream sav(sav_path, std::ios::binary);
+    if(sav && !ram_data.empty()){
+        sav.read(reinterpret_cast<char*>(ram_data.data()), ram_data.size());
+    }
+
+}
+
+void MBC1::save(){
+    if(ram_data.empty()) return;
+    std::ofstream sav(sav_path, std::ios::binary);
+    sav.write(reinterpret_cast<char*>(ram_data.data()), ram_data.size());
+}
+
 uint8_t MBC1::read(uint16_t addr){
     if(addr <= 0x3FFF){
         /*
