@@ -66,7 +66,7 @@ uint8_t MBC3::read(uint16_t addr){
         if(!ram_and_timer_enable)
             return 0xFF;
 
-        if(ram_rtc_select <= 0x07){
+        if(ram_rtc_select <= 0x03){
             // RAM bank
             size_t index = ram_rtc_select * 0x2000
                          + (addr - 0xA000);
@@ -110,6 +110,15 @@ void MBC3::writeRegister(uint16_t addr, uint8_t value){
     else if(addr <= 0x7FFF){
     }
     else if(addr >= 0xA000 && addr <= 0xBFFF){
+        if(!ram_and_timer_enable) return;
+    
+        if(ram_rtc_select <= 0x03){
+            size_t index = ram_rtc_select * 0x2000 + (addr - 0xA000);
+            if(index < ram_data.size()){
+                ram_data[index] = value;
+            }
+        }
+        // RTC register writes handled later
     }
 }
 

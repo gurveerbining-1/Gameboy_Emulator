@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
     }
     
     membus mem;
-    mem.loadCartridge("../../ROMs/dmg-acid2.gb");
+    mem.loadCartridge("../../ROMs/Pokemon - Red Version.gb");
     CPU cpu(&mem);
     PPU ppu(&mem);
     timer tmr(&mem);     // timer gets bus pointer for interrupt requests
