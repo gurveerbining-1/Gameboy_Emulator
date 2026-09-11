@@ -12,7 +12,6 @@ int main(int argc, char* argv[])
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
     SDL_Texture* texture = nullptr;
-    
     bool done = false;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -63,6 +62,14 @@ int main(int argc, char* argv[])
         SDL_Quit();
         return 1;
     }
+
+    // TODO: add option for users to plug in a controller
+    /*
+    SDL_GameController* controller = nullptr;
+    if(SDL_NumJoysticks() > 0 && SDL_IsGameController(0)){
+        controller = SDL_GameControllerOpen(0);
+    }
+    */
     
     membus mem;
     mem.loadCartridge("../../ROMs/Pokemon - Red Version.gb");
@@ -87,7 +94,36 @@ int main(int argc, char* argv[])
             {
                 done = true;
             }
-            
+            /*
+            if(event.type == SDL_CONTROLLERBUTTONDOWN && !event.key.repeat){
+                switch(event.cbutton.button){
+                    case SDL_CONTROLLER_BUTTON_A:     jpad.buttonPress(Joypad::BTN_A);      break;
+                    case SDL_CONTROLLER_BUTTON_B:    jpad.buttonPress(Joypad::BTN_B);      break;
+                    case SDL_CONTROLLER_BUTTON_START:     jpad.buttonPress(Joypad::BTN_START);  break;
+                    case SDL_CONTROLLER_BUTTON_BACK:      jpad.buttonPress(Joypad::BTN_SELECT); break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_LEFT: jpad.buttonPress(Joypad::BTN_LEFT);   break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: jpad.buttonPress(Joypad::BTN_RIGHT);   break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_UP: jpad.buttonPress(Joypad::BTN_UP);   break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_DOWN: jpad.buttonPress(Joypad::BTN_DOWN);   break;
+
+                }
+            }
+
+            if(event.type == SDL_CONTROLLERBUTTONUP){
+                switch(event.cbutton.button){
+                    case SDL_CONTROLLER_BUTTON_A:     jpad.buttonRelease(Joypad::BTN_A);      break;
+                    case SDL_CONTROLLER_BUTTON_B:    jpad.buttonRelease(Joypad::BTN_B);      break;
+                    case SDL_CONTROLLER_BUTTON_START:     jpad.buttonRelease(Joypad::BTN_START);  break;
+                    case SDL_CONTROLLER_BUTTON_BACK:      jpad.buttonRelease(Joypad::BTN_SELECT); break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_LEFT: jpad.buttonRelease(Joypad::BTN_LEFT);   break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: jpad.buttonRelease(Joypad::BTN_RIGHT);   break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_UP: jpad.buttonRelease(Joypad::BTN_UP);   break;
+                    case SDL_CONTROLLER_BUTTON_DPAD_DOWN: jpad.buttonRelease(Joypad::BTN_DOWN);   break;
+                
+                }
+            }
+            */
+
             if (event.type == SDL_KEYDOWN && !event.key.repeat)
             {
                 switch (event.key.keysym.sym)
@@ -161,8 +197,8 @@ int main(int argc, char* argv[])
                     case SDLK_v:
                         jpad.buttonRelease(Joypad::BTN_SELECT);
                         break;
-                    }
                 }
+            }
         }
 
         uint32_t frame_cycles = 0;
@@ -185,10 +221,17 @@ int main(int argc, char* argv[])
                 
                 // convert 0-3 shade values to RGB
                 static const uint8_t palette[4][3] = {
+                    /* this was the original colour palette I used, it's a bit harsh on the eyes wanted to use something different
                     {255, 255, 255},  // 0 = white
                     {170, 170, 170},  // 1 = light gray
                     {85,  85,  85},   // 2 = dark gray
                     {0,   0,   0}     // 3 = black
+                    */
+                    // blue tinted colour palette
+                    {215, 235, 235},
+                    {150, 180, 180},
+                    {70,  100, 105},
+                    {25, 40, 45}
                 };
                 
                 // framebuffer stores values 0–3 (the four Game Boy shades). 
@@ -222,6 +265,7 @@ int main(int argc, char* argv[])
        
     }
     mem.saveCartridge();
+    //if(controller) SDL_GameControllerClose(controller);
     SDL_DestroyTexture(texture);
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer); 

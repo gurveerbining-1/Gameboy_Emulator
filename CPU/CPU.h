@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <iostream>
-#include "Instructions.H"
+#include "Instructions.h"
 #include "../bus/membus.h"
 
 /*   condition code (2 bits inside the opcode) selects whether a conditional branch is taken, 
