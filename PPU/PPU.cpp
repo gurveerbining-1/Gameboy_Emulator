@@ -85,7 +85,6 @@ void PPU::OAMscan(){
 
 void PPU::renderScanline(){
     uint8_t LCDC = bus->read(0xFF40);
-
     if(!(LCDC & 0x80)){
         cycle_counter = 0;
         LY = 0;
@@ -101,17 +100,18 @@ void PPU::renderScanline(){
     uint8_t sprite_pixels[160] = {};   // sprite shade (0 = no sprite / transparent)
     uint8_t sprite_attrs[160] = {};    // sprite attribute byte (for priority flags)
     bool    sprite_exists[160] = {};   // did any sprite cover this pixel    
+    uint8_t win_indices[160] = {};     // raw window color index before palette
 
     renderBackground(bg_pixels, bg_indices);
 
-    renderWindow(win_pixels, window_pixels);
+    renderWindow(win_pixels, window_pixels, win_indices);
 
 
     renderSprites(sprite_pixels, sprite_attrs, sprite_exists);
 
     
     compositeLayers(bg_pixels, bg_indices,
-                    win_pixels, window_pixels,
+                    win_pixels, window_pixels, win_indices,
                     sprite_pixels, sprite_attrs, sprite_exists);
 
 }
@@ -271,7 +271,7 @@ void PPU::renderBackground(uint8_t* pixels, uint8_t* indices){
     }
 }
 
-void PPU::renderWindow(uint8_t* pixels, bool* active){
+void PPU::renderWindow(uint8_t* pixels, bool* active, uint8_t* indices){
     uint8_t LCDC = bus->read(0xFF40);
     uint8_t BGP  = bus->read(0xFF47);
     uint8_t WX   = bus->read(0xFF4B);
@@ -345,7 +345,7 @@ void PPU::renderWindow(uint8_t* pixels, bool* active){
 
         // Tell compositor that this pixel belongs to window
         active[x] = true;
-
+        indices[x] = colour_index;
         window_drawn = true;
     }
 
@@ -456,7 +456,7 @@ void PPU::renderSprites(uint8_t* pixels, uint8_t* attrs, bool* exists){
 }
 
 void PPU::compositeLayers(  uint8_t* bg_pixels, uint8_t* bg_indices,
-                            uint8_t* win_pixels, bool* win_active,
+                            uint8_t* win_pixels, bool* win_active, uint8_t* win_indices,
                             uint8_t* spr_pixels, uint8_t* spr_attrs, bool* spr_exists){
     
     uint8_t final_write_to_buffer = 0;
@@ -467,7 +467,7 @@ void PPU::compositeLayers(  uint8_t* bg_pixels, uint8_t* bg_indices,
 
         if(win_active[x]){
             final_write_to_buffer = win_pixels[x]; // window overrides background
-            bg_index = win_active[x]; // window index used for sprite priority too
+            bg_index = win_indices[x]; // was win_active[x] (this was wrong since win[x] stores bool values)
         }
         else{
             bg_index = bg_indices[x];
@@ -475,6 +475,7 @@ void PPU::compositeLayers(  uint8_t* bg_pixels, uint8_t* bg_indices,
 
         if(spr_exists[x]){
             behind = (spr_attrs[x] & 0x80) && (bg_index != 0);
+            //behind = false;
             if(!behind){
                 final_write_to_buffer = spr_pixels[x]; // sprite wins
             }

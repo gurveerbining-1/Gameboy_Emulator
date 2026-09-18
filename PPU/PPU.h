@@ -44,11 +44,11 @@ class PPU{
         void OAMscan();            
         void requestInterrupt(uint8_t bit); // sets bit in IF
         void renderBackground(uint8_t* pixels, uint8_t* indices);
-        void renderWindow(uint8_t* pixels, bool* active);
+        void renderWindow(uint8_t* pixels, bool* active, uint8_t* indices);
         void renderSprites(uint8_t* pixels, uint8_t* attrs, bool* exists);
         void compositeLayers(
             uint8_t* bg_pixels, uint8_t* bg_indices,
-            uint8_t* win_pixels, bool* win_active,
+            uint8_t* win_pixels, bool* win_active, uint8_t* win_indices,
             uint8_t* spr_pixels, uint8_t* spr_attrs, bool* spr_exists
         );
         
