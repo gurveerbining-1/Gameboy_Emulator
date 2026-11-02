@@ -52,7 +52,16 @@ uint8_t MBC1::read(uint16_t addr){
         /*
         The switchable bank. Compute the effective bank number from rom_bank and upper_bits, offset into rom_data
         */
-        return rom_data[(((upper_bits << 5) | rom_bank) * 0x4000) + (addr - 0x4000)];
+        size_t bank_count = rom_data.size() / 0x4000; // ROM banks the cartridge contains
+
+        uint32_t bank = (upper_bits << 5) | rom_bank; // The ROM bank selected by the registers
+
+        // Account for the physical ROM size
+        bank %= bank_count;
+
+        size_t offset = bank * 0x4000 + (addr - 0x4000); // byte position inside rom_data
+
+        return rom_data[offset];
     }
     else if(addr >= 0xA000 && addr <= 0xBFFF){
         /*
